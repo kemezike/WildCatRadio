@@ -1,0 +1,228 @@
+
+#nav{
+	overflow: hidden;
+	background-color: #333;
+	position: fixed; /* Set the navbar to fixed position */
+	top: 0; /* Position the navbar at the top of the page */
+	width: 100%; /* Full width */
+	z-index: 1;
+}
+#nav a{
+	color: white
+}
+#nav a:hover{
+	background-color: #00d1b2;
+}
+
+#nav a.active{
+	background-color: #00d1b2;
+}
+
+.footer{
+	overflow: hidden;
+	background-color: #333;
+	position: fixed; /* Set the navbar to fixed position */
+	bottom:0; /* Position the navbar at the top of the page */
+	width: 100%; /* Full width */
+	height: 20%;
+	left: 0;
+	z-index: 1;
+}
+
+#main{
+	height: 200px;
+}
+
+#main .section{
+	min-height: 100vh;
+	background-color:#989898;
+	padding-top: 110px;
+}
+
+#main .schedule{
+		padding-top: 75px;
+	}
+
+#main .schedule .container .title{
+	text-align:right;
+}
+#main .schedule .container .subtitle{
+	text-align:right;
+}
+
+
+#play-button{
+	box-shadow:2px 4px 0 2px rgba(0,0,0,0.1);
+	border:.5em solid #E84D0E;
+	font-size:1em;
+	line-height:1.1em;
+	color:#ffffff;
+	margin:auto;
+	border-radius:50%;
+	height:7em;
+	width:7em;
+	position:relative;
+}
+
+#play-button button:hover{
+	color:#989898;
+}
+
+#play-button-icon{
+	font-size:40px;
+	color:black;
+}
+
+section .footer .player{
+	margin-top:-40px;
+	margin-left:-15px
+}
+
+#metadata{
+	color: white; 
+	font-size: 42px; 
+}
+
+#main{
+	padding-bottom: 20%;
+}
+
+#main .schedule .container table{
+	width: 100%;
+	font-size: 36px
+}
+
+#main .schedule .container th:first-child{
+	text-align: center;
+}
+#main .schedule .container td:first-child{
+	text-align: center;
+}
+
+
+
+
+
+@media only screen and (max-width: 240px) {
+	#nav{
+		width: 100%
+	}
+	#nav a{
+		color: black
+	}
+}
+
+@media only screen and (max-width: 320px) {
+	#nav{
+		width: 100%
+	}
+	#nav a{
+		color: black
+	}
+
+}
+
+/*Iphone 5, Galaxy 5, Mobile*/
+@media only screen and (max-width: 420px) {
+	#nav{
+		width: 100%
+	}
+	#nav a{
+		color: black
+	}
+	.footer{
+		height: 10px;
+	}
+
+	#play-button{
+		box-shadow:2px 4px 0 2px rgba(0,0,0,0.1);
+		border:.5em solid #E84D0E;
+		font-size:1em;
+		line-height:1.1em;
+		color:#ffffff;
+		margin:auto;
+		border-radius:50%;
+		height:7em;
+		width:7em;
+		position:relative;
+	}
+
+	section .footer .player{
+		margin-top:-42px;
+		margin-left:-20px
+	}
+	#metadata{
+		font-size: 24px; 
+	}
+
+	#main .schedule .container .title{
+		text-align:center;
+	}
+	#main .schedule .container .subtitle{
+		text-align:right;
+	}
+
+	#main .schedule .container th{
+		font-size: 26px;
+
+	}
+	#main .schedule .container tr{
+		font-size: 19px;
+	}
+
+	#main .schedule .container th:first-child{
+		text-align: left;
+	}
+
+	#main .schedule .container td:first-child{
+		text-align: left;
+	}
+
+
+
+}
+@media only screen and (max-width: 900px) {
+	#nav{
+		width: 100%
+	}
+	#nav a{
+		color: black
+	}
+
+	#play-button{
+		box-shadow:2px 4px 0 2px rgba(0,0,0,0.1);
+		border:.5em solid #E84D0E;
+		font-size:1em;
+		line-height:1.1em;
+		color:#ffffff;
+		margin:auto;
+		border-radius:50%;
+		height:7em;
+		width:7em;
+		position:relative;
+	}
+
+}
+@media only screen and (max-width: 1000px) {
+	#nav{
+		overflow: hidden;
+		position: fixed; /* Set the navbar to fixed position */
+		top: 0; /* Position the navbar at the top of the page */
+		z-index: 1;
+	}
+
+	#play-button{
+		box-shadow:2px 4px 0 2px rgba(0,0,0,0.1);
+		border:.5em solid #E84D0E;
+		font-size:1em;
+		line-height:1.1em;
+		color:#ffffff;
+		margin:auto;
+		border-radius:50%;
+		height:7em;
+		width:7em;
+		position:relative;
+	}
+}
+
+
