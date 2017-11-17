@@ -1,7 +1,7 @@
 
 #nav{
 	overflow: hidden;
-	background-color: #333;
+	background-color: #FFA237;
 	position: fixed; /* Set the navbar to fixed position */
 	top: 0; /* Position the navbar at the top of the page */
 	width: 100%; /* Full width */
@@ -35,7 +35,7 @@
 
 #main .section{
 	min-height: 100vh;
-	background-color:#989898;
+	background-color:#E2F5FE;
 	padding-top: 110px;
 }
 
@@ -53,7 +53,7 @@
 
 #play-button{
 	box-shadow:2px 4px 0 2px rgba(0,0,0,0.1);
-	border:.5em solid #E84D0E;
+	border:.5em solid #ff720d;
 	font-size:1em;
 	line-height:1.1em;
 	color:#ffffff;
