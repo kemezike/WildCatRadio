@@ -1,7 +1,20 @@
 <?php
 
 Route::get('/', function () {
-	return view('app.index');
+	// dd(auth::user());
+	//$mac = substr (exec('getmac') , 0 , 17 ); //extract user mac address
+	
+	//checks if user mac address is in the user table
+	// if(App\User::all('mac_address')->contains('mac_address',$mac)){
+	// auth()->login($user);
+	// $user = App\User::where('mac_address',$mac)->first();
+	
+	if (auth::user()) {
+		return view('app.index');
+	}
+	else{
+		return view('app.login');
+	}
 });
 
 Route::get('/index',function(){
@@ -70,8 +83,9 @@ return $html;
 });
 
 
-Route::get('/deds',function(){
-	return view('app.dedication');
+Route::get('/deds', function(){
+
+	return view('app.dedication'); 
 });
 
 Route::get('/test',function(){
@@ -80,3 +94,10 @@ Route::get('/test',function(){
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/register', 'RegistrationController@create');
+Route::post('/register', 'RegistrationController@store');
+Route::get('/login', function () {
+	return view('app.login');
+});
+// Route::get('/login', '	SessionsController@create');
