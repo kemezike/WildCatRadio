@@ -37,32 +37,43 @@
                         Schedule
                     </a>
                 </div>
-            </div>
-        </nav>
+                <div class="navbar-end">
+                    @if(Auth::user())
+                    <a align="right" data-scrol class="navbar-item " id="scheduleLink" >
 
-        <div class="main" id="main">
-         @yield('content')
-     </div>
+                        Welcome, {{auth::user()->name}}
 
-     <section class="section">
-        <div class="footer">
-            <div class="columns player is-mobile">
-                <div class="column is-2-desktop is-5-mobile is-gapless">
-                    <audio id="music">
-                        <source id="stream" src="#">
-                        </audio>
-                        <button class="btn btn-default" type="button" id="play-button"><i class="fa fa-play" aria-hidden="true" id="play-button-icon"></i></button>
-                    </div>
-                    <div class="column is-7-mobile is-centered">
-                        <span id="metadata"> Despacito - Justin Bieber</span>
-                    </div>  
+                    </a>
+                    @endif
                 </div>
+
             </div>
-        </section>
+        </div>
+    </nav>
 
-    </div>
+    <div class="main" id="main">
+       @yield('content')
+   </div>
 
-    <!-- for smooth navigation scroll -->
+   <section class="section">
+    <div class="footer">
+        <div class="columns player is-mobile">
+            <div class="column is-2-desktop is-5-mobile is-gapless">
+                <audio id="music">
+                    <source id="stream" src="#">
+                    </audio>
+                    <button class="btn btn-default" type="button" id="play-button"><i class="fa fa-play" aria-hidden="true" id="play-button-icon"></i></button>
+                </div>
+                <div class="column is-7-mobile is-centered">
+                    <span id="metadata"> Despacito - Justin Bieber</span>
+                </div>  
+            </div>
+        </div>
+    </section>
+
+</div>
+
+<!-- for smooth navigation scroll -->
     {{-- <script src="{{assets('js/smooth-scroll.js')}}"></script>
     <script>
         var scroll = new SmoothScroll('a[href*="#"]');
