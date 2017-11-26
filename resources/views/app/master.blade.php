@@ -8,8 +8,10 @@
     <link rel="stylesheet" href="{{asset('css/bulma.css')}}">
     <link rel="stylesheet" href="{{asset('css/custom.css')}}">
     <link rel="stylesheet" href="{{asset('css/custom-fonts.css')}}">
+    <script src="{{asset('js/clock.js')}}"></script>
+    <script src="{{asset('js/displayDedication.js')}}"></script>
 </head>
-<body>
+<body onload="startTime()">
     <div id="app">
         <nav class="navbar" id="nav">
             <div class="navbar-brand">
@@ -30,6 +32,7 @@
             <div id="navMenuTransparentExample" class="navbar-menu" v-bind:class="{ 'is-active' : showNav }"> 
                 <div class="navbar-start">
 
+                    {{-- @if(auth::user()) --}}
                     <a data-scrol class="navbar-item " id="dedicationLink">
                         Dedications
                     </a>
@@ -42,8 +45,10 @@
                     <a align="right" data-scrol class="navbar-item " id="scheduleLink" >
 
                         Welcome, {{auth::user()->name}}
-
                     </a>
+                    <input type="hidden" id="user_id" value="{{auth::user()->id}}">
+                    @else
+                    <input type="hidden" id="user_id" value="">
                     @endif
                 </div>
 
@@ -70,78 +75,96 @@
             </div>
         </div>
     </section>
-
 </div>
 
-<!-- for smooth navigation scroll -->
-    {{-- <script src="{{assets('js/smooth-scroll.js')}}"></script>
-    <script>
-        var scroll = new SmoothScroll('a[href*="#"]');
-    </script> --}}
+<!-- mobile navbar -->
+<script src="{{asset('js/jquery-3.2.1.min.js')}}"></script>
+<script src="{{asset('js/vue.js')}}"></script>
 
-    <!-- mobile navbar -->
-    <script src="{{asset('js/jquery-3.2.1.min.js')}}"></script>
-    <script src="{{asset('js/vue.js')}}"></script>
-    <script>
+@if(auth::user())
+<script src="{{asset('js/dedication.js')}}"></script>
+@endif
+<script src="{{asset('js/links.js')}}"></script>
 
-        new Vue({
-            el: '#app',
-            data: {
-                showNav: false
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            showNav: false
+        }
+    });
+
+    $('#indexLink').on('click',function(){
+        $.ajax({
+            url:'/index',
+            method:'GET',
+            beforeSend: function() {
+                $('#main')
+                .html('<section style="padding-left:110px" class="section dedication is-centered"><img src="{{asset('img/loading.gif')}}"/></section>');
+            },
+            success:function(data){
+                $('#main').html(data);    
+            },
+            error:function(){
+                alert('fail to load.');
             }
-        });
+        })
+    });
 
-        
 
-        $('#indexLink').on('click',function(){
-            // add gif pre-loader
-            $.ajax({
-                url:'/index',
-                method:'GET',
-                beforeSend: function() {
-                    $('#main')
-                    .html('<section style="padding-left:110px" class="section dedication is-centered"><img src="{{asset('img/loading.gif')}}"/></section>');
-                },
-                success:function(data){
-                    $('#main').html(data);    
-                },
-                error:function(){
-                    alert('fail to load.');
-                }
-            })
-        });
+    $('#dedicationLink').on('click',function(){
+        @if(auth::user())
+        $.ajax({
+            url:'/dedication',
+            method:'GET',
+            beforeSend: function() {
+                $('#main').html('<section style="padding-left:110px" class="section dedication is-centered"><img src="{{asset('img/loading.gif')}}"/></section>');
+            },
+            success:function(data){
+                $('#main').html(data);
+                chat();
+                setInterval(function(){chat()},1000);
 
-        $('#dedicationLink').on('click',function(){
-            // add gif pre-loader
-            $.ajax({
-                url:'/dedication',
-                method:'GET',
-                beforeSend: function() {
-                    $('#main').html('<section style="padding-left:110px" class="section dedication is-centered"><img src="{{asset('img/loading.gif')}}"/></section>');
-                },
-                success:function(data){
-                    $('#main').html(data);    
-                },
-                error:function(){
-                    alert('fail to load.');
-                }
-            })
-        });
-        $('#scheduleLink').on('click',function(){
-            $.ajax({
-                url:'/schedule',
-                method:'GET',
-                beforeSend: function() {
-                    $('#main').html('<section style="padding-left:110px" class="section dedication is-centered"><img src="{{asset('img/loading.gif')}}"/></section>');
-                },
-                success:function(data){
-                    $('#main').html(data);    
-                },
-                error:function(){
-                    alert('fail to load.');
-                }
-            })
-        });
-    </script>
+
+            },
+            error:function(){
+                alert('fail to load.');
+            }
+        })
+        @else
+        $.ajax({
+            url:'/signup',
+            method:'GET',
+            beforeSend: function() {
+                $('#main').html('<section style="padding-left:110px" class="section dedication is-centered"><img src="{{asset('img/loading.gif')}}"/></section>');
+            },
+            success:function(data){
+                $('#main').html(data);    
+            },
+            error:function(){
+                alert('fail to load.');
+            }
+        })
+        @endif
+
+    });
+
+    $('#scheduleLink').on('click',function(){
+        $.ajax({
+            url:'/schedule',
+            method:'GET',
+            beforeSend: function() {
+                $('#main').html('<section style="padding-left:110px" class="section dedication is-centered"><img src="{{asset('img/loading.gif')}}"/></section>');
+            },
+            success:function(data){
+                $('#main').html(data);    
+            },
+            error:function(){
+                alert('fail to load.');
+            }
+        })
+    });
+
+</script>
 </body>
 </html>
