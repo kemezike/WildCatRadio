@@ -1,32 +1,57 @@
 <?php
 
 Route::get('/', function () {
-	// dd(auth::user());
-	//$mac = substr (exec('getmac') , 0 , 17 ); //extract user mac address
-	
-	//checks if user mac address is in the user table
-	// if(App\User::all('mac_address')->contains('mac_address',$mac)){
-	// auth()->login($user);
-	// $user = App\User::where('mac_address',$mac)->first();
-	
-	if (auth::user()) {
-		return view('app.index');
-	}
-	else{
-		return view('app.login');
-	}
+	return view('app.index');
+});
+
+Route::post('/chat','ChatController@store');
+
+Route::get('/chat',function(){
+		$chats = App\Chat::leftJoin('users','users.id','=','chats.user_id')
+		->addSelect('name','message','chats.created_at as created_at','chats.updated_at as updated_at')
+		->orderBy('created_at', 'asc')
+		->take(40)->get();
+
+	return $chats;
 });
 
 Route::get('/index',function(){
 	$html='<section class="section index" style="">
 	<div class="container">
-		<h1 class="title">
-			1:50 pm
+	<script>startTime();</script>
+		<h1 class="title" id="clock-time">
 		</h1>
-		<h2 class="subtitle">
-			Friday, October 3, 2017
+		<h2 class="subtitle" id="clock-date">
 		</h2>
 	</div>
+</section>';
+return $html;
+});
+
+Route::get('/signup',function(){
+	$html='
+	<section class="section dedication is-centered">
+	<form action="/register" method="POST">
+		<div class="field">
+			<label class="label">Name</label>
+			<div class="control">
+				<input class="input" name="name" id="name" type="text" placeholder="Text input">
+			</div>
+		</div>
+
+		<div class="field">
+			<div class="control">
+				<label class="checkbox">
+					<input type="checkbox">
+					I agree to the <a href="#">terms and conditions</a>
+				</label>
+			</div>
+		</div>
+
+		<div class="control">
+		<input type="submit" value="Submit" class="button is-primary">
+		</div>
+	</form>
 </section>';
 return $html;
 });
@@ -34,11 +59,10 @@ return $html;
 Route::get('/schedule',function(){
 	$html='<section class="section schedule" style="">
 	<div class="container">
-		<h1 class="title">
-			1:50 pm
+		<script>startTime();</script>
+		<h1 class="title" id="clock-time">
 		</h1>
-		<h2 class="subtitle">
-			Friday, October 3, 2017
+		<h2 class="subtitle" id="clock-date">
 		</h2>
 		<table>
 			<tr>
@@ -76,15 +100,29 @@ return $html;
 });
 
 Route::get('/dedication',function(){
-	$html = '<section class="section dedication" style="">
-	dedication page
-</section>';
-return $html;
+	$html = '
+	<section class="section dedication is-centered">
+		<div class="container" style="padding-bottom: 150px">
+			<div class="msg-group center" id="chatbox">
+				
+			</div>
+
+			<div class="input-group">
+				<div class="field">
+					<div class="control">
+						<input class="input" type="text" placeholder="Text iput" id="message" style="width: 90%">
+						<button class="btn btn-secondary" id="send" onclick="send()" style="width: 7%">Send</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	';
+	return $html;
 });
 
 
 Route::get('/deds', function(){
-
 	return view('app.dedication'); 
 });
 
@@ -96,8 +134,5 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/register', 'RegistrationController@create');
+
 Route::post('/register', 'RegistrationController@store');
-Route::get('/login', function () {
-	return view('app.login');
-});
-// Route::get('/login', '	SessionsController@create');
