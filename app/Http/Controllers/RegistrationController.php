@@ -9,12 +9,11 @@ use Auth;
 class RegistrationController extends Controller
 {
     public function create(){
-       return view('sessions.create');
+       return view('app.login');
    }
 
    public function store(){
     	//Validate Form
-//$mac = substr (exec('getmac') , 0 , 17 ); //extract user mac address
 
     	//Create and Save User
     $user = User::create([
