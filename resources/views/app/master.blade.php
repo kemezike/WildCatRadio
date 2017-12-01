@@ -10,8 +10,42 @@
     <link rel="stylesheet" href="{{asset('css/custom-fonts.css')}}">
     <script src="{{asset('js/clock.js')}}"></script>
     <script src="{{asset('js/displayDedication.js')}}"></script>
+    <script>
+
+        function radioTitle() {
+
+// this is the URL of the json.xml file located on your server.
+var url = 'http://192.168.254.101:8000/json.xsl'; 
+
+$.ajax({
+   type: 'GET',
+   url: url,
+   async: true,
+   jsonpCallback: 'parseMusic',
+   contentType: "application/json",
+   dataType: 'jsonp',
+   success: function(json) {
+        // this is the element we're updating that will hold the track title
+        $('#track-title').html(json['/stream.m3u']['title']); 
+        // this is the element we're updating that will hold the listeners count
+        // $('#listeners').val(json['/stream']['listeners']); 
+    },
+    error: function(e) {
+       console.log(e.message);
+   }
+});
+}
+
+function startMetadata(){
+
+  setTimeout(function(){radioTitle();}, 500);
+  setInterval(function(){radioTitle();}, 500); // we're going to update our html elements / player every 15 seconds
+
+}
+
+</script>
 </head>
-<body onload="startTime()">
+<body onload="startTime(); startMetadata()">
     <div id="app">
         <nav class="navbar" id="nav">
             <div class="navbar-brand">
@@ -70,7 +104,7 @@
                     <button class="btn btn-default" type="button" id="play-button"><i class="fa fa-play" aria-hidden="true" id="play-button-icon"></i></button>
                 </div>
                 <div class="column is-7-mobile is-centered">
-                    <span id="metadata"> Despacito - Justin Bieber</span>
+                    <p><span id="track-title" class="metadata"> </span></p> 
                 </div>  
             </div>
         </div>
