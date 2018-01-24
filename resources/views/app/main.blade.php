@@ -331,6 +331,7 @@
         <script src="{{asset('js/displayDedication.js')}}"></script>
         <script src="{{asset('wcr/lib/Jplayer/dist/jplayer/jquery.jplayer.min.js')}}"></script>
         <script src="{{asset('js/dedication.js')}}"></script>
+        <script src="{{asset('wcr/js/login.js')}}"></script>
       </body>
 
       <!-- MODALS -->
@@ -386,7 +387,8 @@
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <input type="submit" value="Submit" class="btn btn-primary" value="Log in">
+                {{-- <input type="submit" value="Submit" class="btn btn-primary" value="Log in"> --}}
+                <button type="button" id="send" onclick="login()" class="btn btn-primary">Login</button>
                 {{-- <button type="button" class="btn btn-primary">Log in</button> --}}
               </div>
             </form>

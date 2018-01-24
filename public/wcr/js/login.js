@@ -1,10 +1,9 @@
-    function send(){
+    function login(){
        $.ajax({
           type: 'post',
-          url: '/chat',
+          url: '/register',
           data: {
-            'user_id' : 1,
-            'message': $("#message").val(),
+            'name' : ("#name").val(),
         },
         success: function(data) {
          console.log(data)
