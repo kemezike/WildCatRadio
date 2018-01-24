@@ -3,7 +3,7 @@
           type: 'post',
           url: '/chat',
           data: {
-            'user_id' : $("#user_id").val(),
+            'user_id' : 1,
             'message': $("#message").val(),
         },
         success: function(data) {

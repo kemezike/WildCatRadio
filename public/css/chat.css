@@ -1,0 +1,40 @@
+/* Chat containers */
+.chatbox{
+    /*border: 2px solid #dedede;*/
+    background-color: black;
+    border-radius: 5px;
+    /*padding: 10px;*/
+    height: 400px;
+    /*margin: auto;*/
+}
+
+/* Darker chat container */
+.darker {
+    border-color: #ccc;
+    color:  #ddd;
+}
+
+/* Lighter chat container */
+.lighter {
+    border-color: #ccc;
+    color: gold;
+    width: 100;
+}
+
+/* Clear floats */
+.container::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+/* Style time text */
+.time-right {
+    float: right;
+    color: #aaa;
+}
+
+/* Style time text */
+.time-left {
+    float: left;
+    color: #999;
+}

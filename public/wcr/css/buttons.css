@@ -1,0 +1,170 @@
+.b1
+{
+  padding-top:5px;
+}
+/*APP NAME */
+#appn
+{
+  font-size:18pt;
+  position:relative;
+  padding-top: 50px;
+  margin-right: 80px;
+}
+
+/* PLAY BUTTON CRICLE*/
+#play-button{
+  border:.3em solid gold;
+  font-size:1em;
+  line-height:1.1em;
+  color:gold;
+  background-color:transparent;
+  margin:auto;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  position:relative;
+}
+
+#play-button:hover{
+  color:#ffffff;
+  text-decoration:none;
+  border-color:#ff7536;
+}
+
+/* MUTE CIRCLE*/
+#mute-button{
+  border:.3em solid gold;
+  font-size:1em;
+  line-height:1.1em;
+  color:gold;
+  background-color:transparent;
+  margin:auto;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  position:relative;
+  margin-right:50px;
+}
+
+#mute-button:hover{
+  color:#ffffff;
+  text-decoration:none;
+  border-color:#ff7536;
+}
+
+/* SONG TITLE */
+#metadata
+{
+  color:gold;
+  position:relative;
+  font-size: 22pt;
+  padding-left: 50px;
+}
+
+/* VOLUME CONTROL */
+#vol-control
+{
+  margin-left: 150px;
+  background-color: gold;
+  position:relative;
+  margin-right: 30px;
+
+}
+
+/* SMALL BUTTONS */
+.smallbuts{
+  border:.3em solid gold;
+  font-size:1em;
+  line-height:1.1em;
+  color:gold;
+  background-color:transparent;
+  position:relative;
+}
+
+.smallbuts:hover{
+  color:#ffffff;
+  text-decoration:none;
+  border-color:#ff7536;
+}
+
+/* PLAY ICON SIZE */
+.playsize
+{
+  font-size:30pt;
+  padding-left: 3px;
+}
+
+/* MEDIA BUTTONS */
+
+@media only screen and (max-width: 1024px) {
+ #play-button{
+  border:.3em solid gold;
+  font-size:1em;
+  line-height:1.1em;
+  color:gold;
+  background-color:transparent;
+  margin:auto;
+ border-radius: 30%;
+  width: 85px;
+  height: 85px;
+  position:relative;
+  float:left;
+
+}
+#appn
+{
+  display:none;
+}
+#vol-control
+{
+  display:none;
+}
+.smallbuts
+{
+  display:none;
+}
+}
+@media only screen and (max-width: 1024px) {
+ #play-button{
+  border:.3em solid gold;
+  font-size:1em;
+  line-height:1.1em;
+  color:gold;
+  background-color:transparent;
+  margin:auto;
+ border-radius: 30%;
+  width: 78px;
+  height: 78px;
+  position:relative;
+  float:left;
+
+}
+}
+@media only screen and (max-width: 1024px) {
+ #mute-button{
+  border:.3em solid gold;
+  font-size:1em;
+  line-height:1.1em;
+  color:gold;
+  background-color:transparent;
+  margin:auto;
+ border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  position:relative;
+  float:left;
+}
+}
+/* END OF MOBILE*/
+
+/*Line*/
+hr { 
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 2px;
+    border-color: maroon;
+} 

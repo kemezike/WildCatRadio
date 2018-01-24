@@ -1,10 +1,10 @@
         function startTime() {
             var today = new Date();
-            var h = today.getHours();
+            var h = today.getHours() > 12 ? today.getHours() - 12 : today.getHours() ;
             var m = today.getMinutes();
             var s = today.getSeconds();
             var d = new Date();
-            var ampm = h >= 12 ? 'pm' : 'am';
+            var ampm = h <= 12 ? 'pm' : 'am';
 
             // weekday
             var weekday = new Array(7);

@@ -78,11 +78,11 @@ section .footer .player{
 	margin-left:-15px
 }
 
-#metadata{
+/*.metadata{
 	color: white; 
 	font-size: 42px; 
 }
-
+*/
 #main{
 	padding-bottom: 20%;
 }
@@ -110,6 +110,9 @@ section .footer .player{
 	#nav a{
 		color: black
 	}
+	#metadata{
+		font-size: 12px; 
+	}
 }
 
 @media only screen and (max-width: 320px) {
@@ -119,7 +122,9 @@ section .footer .player{
 	#nav a{
 		color: black
 	}
-
+#metadata{
+		font-size: 12px; 
+	}
 }
 
 /*Iphone 5, Galaxy 5, Mobile*/
@@ -152,7 +157,7 @@ section .footer .player{
 		margin-left:-20px
 	}
 	#metadata{
-		font-size: 24px; 
+		font-size: 12px; 
 	}
 
 	#main .schedule .container .title{
