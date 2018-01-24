@@ -747,5 +747,11 @@ body.mobile-nav-active #mobile-nav-toggle {
   background-color: gold;
   border-radius: 50px;
 }
-
 /*END OF SCROLL BAR STYLE*/
+
+/*Schedule Table*/
+#tableSched
+{
+  text-align:center;
+  width: 800px;
+}
