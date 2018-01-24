@@ -331,6 +331,7 @@
         <script src="{{asset('js/displayDedication.js')}}"></script>
         <script src="{{asset('wcr/lib/Jplayer/dist/jplayer/jquery.jplayer.min.js')}}"></script>
         <script src="{{asset('js/dedication.js')}}"></script>
+        <script src="{{asset('wcr/js/login.js')}}"></script>
       </body>
 
       <!-- MODALS -->
@@ -377,16 +378,17 @@
               </button>
             </div>
             <div class="modal-body">
-              <form action="/register" method="POST">
+              <form>
                 <div class="form-group">
-                  <label for="recipient-name" name="name" id="name" class="col-form-label">Name:</label>
-                  <input type="text" class="form-control" id="recipient-name">
+                  <label for="recipient-name" class="col-form-label">Name:</label>
+                  <input type="text" class="form-control" name="name" id="username">
                 </div>
 
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <input type="submit" value="Submit" class="btn btn-primary" value="Log in">
+                {{-- <input type="submit" value="Submit" class="btn btn-primary" value="Log in"> --}}
+                <button type="button" id="login" onclick="register()" class="btn btn-primary">Login</button>
                 {{-- <button type="button" class="btn btn-primary">Log in</button> --}}
               </div>
             </form>
