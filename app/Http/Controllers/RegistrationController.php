@@ -14,6 +14,10 @@ class RegistrationController extends Controller
 
    public function store(){
     	//Validate Form
+
+    if(Auth::user())
+       Auth::logout();
+     
     	//Create and Save User
     $user = User::create([
         'name'=>request('name')
