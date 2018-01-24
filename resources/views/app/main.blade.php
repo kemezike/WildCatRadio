@@ -141,7 +141,7 @@
 
           <div class="container wow fadeInUp">
             <div class="section-header">
-              <h3 class="section-title" id="dedicationTitle">Dedication 
+              <h3 class="section-title" id="">Dedication 
                 @if(Auth::user())
                 {{Auth::user()->name}}
                 @endif

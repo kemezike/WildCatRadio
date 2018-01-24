@@ -1,5 +1,6 @@
 <?php
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
 	return view('app.index');
@@ -9,9 +10,12 @@ Route::get('/testradio', function () {
 	return view('testradio');
 });
 
-Route::get('/main', function () {
-	return view('app.main');
-});
+// Route::get('/main', function () {
+// 	return view('app.main');
+// });
+
+
+Route::get('/main','SessionsController@main');
 
 Route::get('/apiChat','ChatController@getChat');
 
@@ -142,8 +146,6 @@ Route::get('/test',function(){
 	return view('app.index');
 });
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/register', 'RegistrationController@create');
 Route::post('/register', 'RegistrationController@store');
