@@ -1,10 +1,10 @@
-    function send(){
+    function register(){
+      alert($("#username").val());
        $.ajax({
           type: 'post',
-          url: '/chat',
+          url: '/register',
           data: {
-            'user_id' : 1,
-            'message': $("#message").val(),
+            'name': $("#username").val(),
         },
         success: function(data) {
          console.log(data)
