@@ -53,6 +53,7 @@
             <li class="menu-active"><a href="#hero">Dashboard</a></li>
             <li><a href="#dedications">Dedications</a></li>
             <li><a href="#team">Team</a></li>
+            <li><a href="#schedule">Schedule</a></li>
             <li><a href="#about">About Us</a></li>
           </ul>
         </nav><!-- #nav-menu-container -->
@@ -162,6 +163,43 @@
           </div>
         </section><!-- #dedication -->
 
+
+       <!--==========================
+        Schedule Section
+        ============================-->
+        <section id="team">
+          <div class="container wow fadeInLeft">
+            <div class="section-header">
+              <h3 class="section-title">Schedule</h3>
+              <p class="section-description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
+            </div>
+            <div class="container wow fadeInDown">
+             <table class="table table-bordered" id="tableSched">
+              <thead>
+                <tr>
+                  <th>Genre</th>
+                  <th>Time</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Punk Rock</td>
+                  <td>9:00 - 10:00</td>
+                </tr>
+                <tr>
+                  <td>Christian Song</td>
+                  <td>10:00 - 11:00</td>
+                </tr>
+                <tr>
+                  <td>OPM</td>
+                  <td>11:00 - 12:00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section><!-- #schedule -->
+
        <!--==========================
         Team Section
         ============================-->
@@ -234,6 +272,8 @@
           </div>
         </section><!-- #team -->
 
+
+
       <!--==========================
         Footer Section
         ============================-->
@@ -285,24 +325,24 @@
             <button class="btn btn-default" type="button" id="mute-button"><i class="fa fa-volume-up mutesize" aria-hidden="true" id="muteonicon"></i></button> 
             <marquee width="30%""><span id="metadata"> Radio Connecting . . </span> </marquee>
             <input id="vol-control" type="range" min="0" max="100" step="1" oninput="SetVolume(this.value)" onchange="SetVolume(this.value)"></input>
-              <button class="btn btn-default smallbuts" id="dedicationAccess"  type="button" title="Send Dedications" data-toggle="modal" data-target="#logModal">
+            <button class="btn btn-default smallbuts" id="dedicationAccess"  type="button" title="Send Dedications" data-toggle="modal" data-target="#logModal">
 
 
-                <i class="fa fa-plus" aria-hidden="true"></i>&nbsp;<i class="fa fa-file-text" aria-hidden="true"></i>
+              <i class="fa fa-plus" aria-hidden="true"></i>&nbsp;<i class="fa fa-file-text" aria-hidden="true"></i>
 
-              </button>
+            </button>
 
-              <button class="btn btn-default smallbuts" type="button" title="Send Dedications" data-toggle="modal" data-target="#decModal">
+            <button class="btn btn-default smallbuts" type="button" title="Send Dedications" data-toggle="modal" data-target="#decModal">
 
 
-                <i class="fa fa-plus" aria-hidden="true"></i>&nbsp;<i class="fa fa-file-text" aria-hidden="true"></i>
+              <i class="fa fa-plus" aria-hidden="true"></i>&nbsp;<i class="fa fa-file-text" aria-hidden="true"></i>
 
-              </button>
-              <button class="btn btn-default smallbuts" type="button" id="send-dedication" title="Follow us on Facebook">
+            </button>
+            <button class="btn btn-default smallbuts" type="button" id="send-dedication" title="Follow us on Facebook">
 
-                <i class="fa fa-plus" aria-hidden="true"></i>&nbsp;<i class="fa fa-facebook-square" aria-hidden="true"></i>
+              <i class="fa fa-plus" aria-hidden="true"></i>&nbsp;<i class="fa fa-facebook-square" aria-hidden="true"></i>
 
-              </button>
+            </button>
           </div>
 
 

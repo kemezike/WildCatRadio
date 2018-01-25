@@ -1,4 +1,4 @@
-    function register(){
+function register(){
       alert($("#username").val());
 
       $.ajax({
