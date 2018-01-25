@@ -10,26 +10,12 @@ Route::get('/testradio', function () {
 	return view('testradio');
 });
 
-// Route::get('/main', function () {
-// 	return view('app.main');
-// });
-
-
 Route::get('/main','SessionsController@main');
 
 Route::get('/apiChat','ChatController@getChat');
 
 Route::post('/chat','ChatController@store');
 Route::get('/chat', 'ChatController@getChat');
-
-// Route::get('/chat',function(){
-// 		$chats = App\Chat::leftJoin('users','users.id','=','chats.user_id')
-// 		->addSelect('name','message','chats.created_at as created_at','chats.updated_at as updated_at')
-// 		->orderBy('created_at', 'asc')
-// 		->take(40)->get();
-
-// 	return $chats;
-// });
 
 Route::get('/index',function(){
 	$html='<section class="section index" style="">
@@ -148,14 +134,5 @@ Route::get('/test',function(){
 Auth::routes();
 
 Route::get('/register', 'RegistrationController@create');
-Route::post('/register', 'RegistrationController@store');
 
-// Route::get('/getChat', function(){
-//  if(Request::ajax()){
-//  	return 'alright';
-//  }
-// });
-// Route::get('/logins', function () {
-// 	return view('app.login');
-// });
-// Route::get('/login', '	SessionsController@create');
+Route::post('/register', 'RegistrationController@store');
