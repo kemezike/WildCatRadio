@@ -142,10 +142,7 @@
 
           <div class="container wow fadeInUp">
             <div class="section-header">
-              <h3 class="section-title" id="">Dedication 
-                @if(Auth::user())
-                {{Auth::user()->name}}
-                @endif
+              <h3 class="section-title" id="">Dedication
               </h3>
               <p class="section-description">Ipahayag ang iyong Storya gamit aning na Serbisyo</p>
             </div>
@@ -324,19 +321,18 @@
             <button class="btn btn-default" type="button" id="mute-button"><i class="fa fa-volume-up mutesize" aria-hidden="true" id="muteonicon"></i></button> 
             <marquee width="30%""><span id="metadata"> Radio Connecting . . </span> </marquee>
             <input id="vol-control" type="range" min="0" max="100" step="1" oninput="SetVolume(this.value)" onchange="SetVolume(this.value)"></input>
+            @if(!Auth::user())
             <button class="btn btn-default smallbuts" id="dedicationAccess"  type="button" title="Send Dedications" data-toggle="modal" data-target="#logModal">
-
-
-              <i class="fa fa-file-text" aria-hidden="true"></i>
-
+              <i class="fa fa-plus" aria-hidden="true"></i>&nbsp;<i class="fa fa-file-text" aria-hidden="true"></i>
             </button>
-
+            @endif
+            @if(Auth::user())
             <button class="btn btn-default smallbuts" type="button" title="Send Dedications" data-toggle="modal" data-target="#decModal">
-
-
               <i class="fa fa-file-text" aria-hidden="true"></i>
-
+              <i class="fa fa-plus" aria-hidden="true"></i>&nbsp;<i class="fa fa-file-text" aria-hidden="true"></i>
             </button>
+            @endif
+
             <button class="btn btn-default smallbuts" type="button" id="send-dedication" title="Follow us on Facebook">
 
               <i class="fa fa-facebook-square" aria-hidden="true"></i>
@@ -377,7 +373,7 @@
 
       <!-- MODALS -->
       <!-- Dedication Modal -->
-
+      @if(Auth::user())
       <div class="modal fade" id="decModal" tabindex="-1" role="dialog" aria-labelledby="decModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -391,7 +387,9 @@
               <form>
                 <div class="form-group">
                   <label for="recipient-name" class="col-form-label">Recipient:</label>
-                  <input type="text" class="form-control" id="recipient-name" value="">
+                  <input type="text" class="form-control" id="recipient-name" value="@if(Auth::user())
+                  {{Auth::user()->name}}
+                  @endif">
                 </div>
                 <div class="form-group">
                   <label for="message-text" class="col-form-label" >Message:</label>
@@ -406,10 +404,12 @@
           </div>
         </div>
       </div>
+      @endif
 
       <!-- End Dedication Modal -->
 
       <!-- Login Modal -->
+      @if(!Auth::user())
       <div class="modal fade" id="logModal" tabindex="-1" role="dialog" aria-labelledby="decModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -420,7 +420,7 @@
               </button>
             </div>
             <div class="modal-body">
-              <form>
+              <form action="/register" method="POST">
                 <div class="form-group">
                   <label for="recipient-name" class="col-form-label">Name:</label>
                   <input type="text" class="form-control" name="name" id="username">
@@ -430,6 +430,7 @@
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 {{-- <input type="submit" value="Submit" class="btn btn-primary" value="Log in"> --}}
+                <input type="submit" value="Submit" class="button is-primary">
                 <button type="button" id="login" onclick="register()" class="btn btn-primary">Login</button>
                 {{-- <button type="button" class="btn btn-primary">Log in</button> --}}
               </div>
@@ -437,6 +438,7 @@
           </div>
         </div>
       </div>
+      @endif
 
       <!-- End Dedication Modal -->
 
