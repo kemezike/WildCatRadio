@@ -24,7 +24,7 @@ class RegistrationController extends Controller
         ]);
     	//Sign in user
     auth()->login($user);
-    // return redirect('/');
+    return redirect('/main');
 }
 
 }
