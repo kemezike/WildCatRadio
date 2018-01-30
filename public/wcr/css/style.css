@@ -212,7 +212,7 @@ h1, h2, h3, h4, h5, h6, #appn, #metadata {
 #header.header-fixed {
   /*AKO NI HILABTAN LATER*/
   background: black;  
-  opacity: 1;
+  opacity: 0.6;
   padding: 20px 0;
   height: 72px;
   transition: all 0.5s;
@@ -345,11 +345,11 @@ h1, h2, h3, h4, h5, h6, #appn, #metadata {
   padding: 0 8px 10px 8px;
   text-decoration: none;
   display: inline-block;
-  color: maroon;
+  color: gold;
   font-family: "Poppins", sans-serif;
   font-weight: bold;
   text-transform: uppercase;
-  font-size: 15px;
+  font-size: 13px;
   outline: none;
 }
 

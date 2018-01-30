@@ -167,7 +167,7 @@
        <!--==========================
         Schedule Section
         ============================-->
-        <section id="team">
+        <section id="schedule">
           <div class="container wow fadeInLeft">
             <div class="section-header">
               <h3 class="section-title">Schedule</h3>
@@ -268,7 +268,6 @@
                 </div>
               </div>
             </div>
-
           </div>
         </section><!-- #team -->
 
@@ -328,19 +327,19 @@
             <button class="btn btn-default smallbuts" id="dedicationAccess"  type="button" title="Send Dedications" data-toggle="modal" data-target="#logModal">
 
 
-              <i class="fa fa-plus" aria-hidden="true"></i>&nbsp;<i class="fa fa-file-text" aria-hidden="true"></i>
+              <i class="fa fa-file-text" aria-hidden="true"></i>
 
             </button>
 
             <button class="btn btn-default smallbuts" type="button" title="Send Dedications" data-toggle="modal" data-target="#decModal">
 
 
-              <i class="fa fa-plus" aria-hidden="true"></i>&nbsp;<i class="fa fa-file-text" aria-hidden="true"></i>
+              <i class="fa fa-file-text" aria-hidden="true"></i>
 
             </button>
             <button class="btn btn-default smallbuts" type="button" id="send-dedication" title="Follow us on Facebook">
 
-              <i class="fa fa-plus" aria-hidden="true"></i>&nbsp;<i class="fa fa-facebook-square" aria-hidden="true"></i>
+              <i class="fa fa-facebook-square" aria-hidden="true"></i>
 
             </button>
           </div>

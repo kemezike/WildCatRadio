@@ -5,10 +5,10 @@
 /*APP NAME */
 #appn
 {
-  font-size:18pt;
+  font-size:15pt;
   position:relative;
   padding-top: 50px;
-  margin-right: 80px;
+  margin-right: 50px;
 }
 
 /* PLAY BUTTON CRICLE*/
@@ -64,7 +64,6 @@
 /* VOLUME CONTROL */
 #vol-control
 {
-  margin-left: 150px;
   background-color: gold;
   position:relative;
   margin-right: 30px;
@@ -73,7 +72,6 @@
 
 /* SMALL BUTTONS */
 .smallbuts{
-  border:.3em solid gold;
   font-size:1em;
   line-height:1.1em;
   color:gold;
