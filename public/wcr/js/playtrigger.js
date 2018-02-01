@@ -4,7 +4,6 @@ $(document).ready(function(){
   setInterval(function(){radioTitle();}, 6000);
 
 
-
   var music = document.getElementById('music');
   var stream = document.getElementById('stream');
   var ts=(new Date()).getTime();
@@ -45,12 +44,41 @@ $(document).ready(function(){
               music.muted = false;
               $('#muteonicon').removeClass("fa-volume-off");
               $('#muteonicon').addClass("fa-volume-up");
+               $('#vol-control').val(100);
             }
             else
             {
               music.muted = true;
               $('#muteonicon').removeClass("fa-volume-up");
               $('#muteonicon').addClass("fa-volume-off");
+              $('#vol-control').val(0);
+            }
+          }
+        });
+
+          $("#shenbogoka").bind({
+          click:function(){
+            if($('#metafooter').hasClass("footer")){
+              $('#metafooter').removeClass("footer");
+              $('#metafooter').addClass("footer1");
+              $('#minbutton').removeClass("fa-window-minimize");
+              $('#minbutton').addClass("fa-window-maximize");
+              $('#vol-control').hide();
+              $('#mute-button').hide();
+              $('#appn').hide();
+              $('#play-button').css('margin-right', '10px');
+
+            }
+            else
+            {
+              $('#metafooter').removeClass("footer1");
+              $('#metafooter').addClass("footer");
+              $('#minbutton').removeClass("fa-window-maximize");
+              $('#minbutton').addClass("fa-window-minimize");
+              $('#vol-control').show();
+              $('#mute-button').show();
+              $('#appn').show();
+              $('#play-button').css('margin-right', '80px');
             }
           }
         });
@@ -123,4 +151,19 @@ function SetVolume(val)
         console.log('Before: ' + player.volume);
         player.volume = val / 100;
         console.log('After: ' + player.volume);
+        if($('#vol-control').val() == 100)
+        {
+            $('#muteonicon').removeClass("fa-volume-off");
+            $('#muteonicon').addClass("fa-volume-up");
+        }
+        else if($('#vol-control').val() == 0)
+        {
+            $('#muteonicon').removeClass("fa-volume-up");
+            $('#muteonicon').addClass("fa-volume-off");
+        }
+        else if($('#vol-control').val() > 0)
+        {
+             $('#muteonicon').removeClass("fa-volume-off");
+            $('#muteonicon').addClass("fa-volume-up");;
+        }
     }
