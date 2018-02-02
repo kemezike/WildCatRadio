@@ -434,17 +434,13 @@
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                {{-- <input type="submit" value="Submit" class="btn btn-primary" value="Log in"> --}}
-                <input type="submit" value="Submit" class="button is-primary">
-                <button type="button" id="login" onclick="register()" class="btn btn-primary">Login</button>
-                {{-- <button type="button" class="btn btn-primary">Log in</button> --}}
+                <input type="submit" value="Login" class="btn btn-primary">
               </div>
             </form>
           </div>
         </div>
       </div>
       @endif
-
       <!-- End Dedication Modal -->
 
       <!-- END OF MODALS-->

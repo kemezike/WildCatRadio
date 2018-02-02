@@ -13,6 +13,10 @@ class ChatController extends Controller
 
 	public function store(Request $request){
 // validate user
+
+
+
+//create chat and save
 		Chat::create([
 			'user_id'=>Auth::user()->id,
 			'message'=>$request->message,
