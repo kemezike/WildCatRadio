@@ -14,11 +14,11 @@ class RegistrationController extends Controller
 
    public function store(){
     	//Validate Form
-     
 
     	//Create and Save User
     $user = User::create([
-        'name'=>request('name')
+        'name'=>request('name'),
+        'college_id'=>request('college')
         ]);
 
     	//Sign in user
