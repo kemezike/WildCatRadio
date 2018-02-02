@@ -5,24 +5,25 @@
 /*APP NAME */
 #appn
 {
-  font-size:18pt;
+  font-size:11pt;
   position:relative;
   padding-top: 50px;
-  margin-right: 80px;
+  margin-right: 50px;
 }
 
 /* PLAY BUTTON CRICLE*/
 #play-button{
-  border:.3em solid gold;
   font-size:1em;
   line-height:1.1em;
+  border-color: gold;
   color:gold;
   background-color:transparent;
   margin:auto;
-  border-radius: 50%;
-  width: 80px;
-  height: 80px;
+  border-radius: 100%;
+  width: 74px;
+  height: 70px;
   position:relative;
+  margin-right: 80px;
 }
 
 #play-button:hover{
@@ -33,38 +34,32 @@
 
 /* MUTE CIRCLE*/
 #mute-button{
-  border:.3em solid gold;
   font-size:1em;
   line-height:1.1em;
   color:gold;
   background-color:transparent;
   margin:auto;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
   position:relative;
-  margin-right:50px;
+  width: 80px;
+  padding-left:30px;
+  border: solid;
+  padding-right:30px;
 }
 
-#mute-button:hover{
-  color:#ffffff;
-  text-decoration:none;
-  border-color:#ff7536;
-}
 
 /* SONG TITLE */
 #metadata
 {
   color:gold;
   position:relative;
-  font-size: 22pt;
+  font-size: 13pt;
   padding-left: 50px;
+  text-transform: uppercase;
 }
 
 /* VOLUME CONTROL */
 #vol-control
 {
-  margin-left: 150px;
   background-color: gold;
   position:relative;
   margin-right: 30px;
@@ -73,7 +68,6 @@
 
 /* SMALL BUTTONS */
 .smallbuts{
-  border:.3em solid gold;
   font-size:1em;
   line-height:1.1em;
   color:gold;
@@ -91,7 +85,7 @@
 .playsize
 {
   font-size:30pt;
-  padding-left: 3px;
+  
 }
 
 /* MEDIA BUTTONS */

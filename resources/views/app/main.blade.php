@@ -164,7 +164,7 @@
        <!--==========================
         Schedule Section
         ============================-->
-        <section id="team">
+        <section id="schedule">
           <div class="container wow fadeInLeft">
             <div class="section-header">
               <h3 class="section-title">Schedule</h3>
@@ -265,7 +265,6 @@
                 </div>
               </div>
             </div>
-
           </div>
         </section><!-- #team -->
 
@@ -302,7 +301,7 @@
     <!--==========================
       Sticky Footer
       ============================-->
-      <div id="footer">
+      <div class="footer" id="metafooter">
         <div id="bg"></div>
         <input class="hidden" id="excheck" type="text"/>
         <!-- FOR THE AUDIO STREAM -->
@@ -311,18 +310,16 @@
           </audio>
           <!-- END OF THE AUDIO STREAM -->
           <div class="b1">
-            <span id="appn"><img src="{{asset('wcr/img/tiger.png')}}" alt="BOGO" title="BOGO" /></img>WILDCATS RADIO</span>
+            <span id="appn"><img src="{{asset('wcr/img/tiger.png')}}" alt="BOGO" title="BOGO" id="logo_1"/></img>&nbsp;WILDCATS RADIO</span>
             <button class="btn btn-default" type="button" id="play-button">
 
               <i class="fa fa-play playsize" aria-hidden="true" id="streamicon"></i>
               <i id="refreshicon" class="fa fa-refresh fa-spin fa-3x fa-fw playsize" style="display:none"></i>
 
             </button>
-
-            <button class="btn btn-default" type="button" id="mute-button"><i class="fa fa-volume-up mutesize" aria-hidden="true" id="muteonicon"></i></button> 
-            <marquee width="30%""><span id="metadata"> Radio Connecting . . </span> </marquee>
-            <input id="vol-control" type="range" min="0" max="100" step="1" oninput="SetVolume(this.value)" onchange="SetVolume(this.value)"></input>
-
+            <marquee width="40%" height="20px" ><span id="metadata"> Radio Connecting . . </span> </marquee>
+             <a class="btn btn-default" id="mute-button"><i class="fa fa-volume-up mutesize" aria-hidden="true" id="muteonicon"></i></a> 
+            <input id="vol-control" type="range" min="0" max="100" step="1" oninput="SetVolume(this.value)" onchange="SetVolume(this.value)"/>
             @if(!Auth::user())
             <button class="btn btn-default smallbuts" id="dedicationAccess"  type="button" title="Send Dedications" data-toggle="modal" data-target="#logModal">
               <i class="fa fa-plus" aria-hidden="true"></i>&nbsp;<i class="fa fa-file-text" aria-hidden="true"></i>
@@ -334,9 +331,9 @@
             </button>
             @endif
 
-            <button class="btn btn-default smallbuts" type="button" id="send-dedication" title="Follow us on Facebook">
+            <button class="btn btn-default smallbuts" type="button" id="shenbogoka" title="Minimizae">
 
-              <i class="fa fa-plus" aria-hidden="true"></i>&nbsp;<i class="fa fa-facebook-square" aria-hidden="true"></i>
+              <i id="minbutton" class="fa fa-window-minimize" aria-hidden="true"></i>
 
             </button>
           </div>

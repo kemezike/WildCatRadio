@@ -4,18 +4,37 @@
   Author: BootstrapMade.com
   License: https://bootstrapmade.com/license/
 */
-
-/*--------------------------------------------------------------
-# Sticky Footer
---------------------------------------------------------------*/
-#footer {
+/*small Footer*/
+.footer1 {
    position: fixed;
    margin-right: 129px;
    padding-left: 20px;
    padding-right: 20px;
    left: 0;
    bottom: 0;
-   height:93px;
+   height:83px;
+   width: 30%;
+   color: #fff;
+   font-size: 14px;
+   border-top-style: solid;
+   border-top-color: maroon;
+   border-right-style: solid;
+   border-right-color: maroon;
+
+   float:center;
+   background-color: black;
+}
+/*--------------------------------------------------------------
+# Sticky Footer
+--------------------------------------------------------------*/
+.footer {
+   position: fixed;
+   margin-right: 129px;
+   padding-left: 20px;
+   padding-right: 20px;
+   left: 0;
+   bottom: 0;
+   height:83px;
    width: 100%;
    color: #fff;
    font-size: 14px;
@@ -23,7 +42,7 @@
    border-top-color: maroon;
    float:center;
 }
-#footer #bg
+.footer #bg
 {
     position: absolute;
     z-index: -1;
@@ -43,10 +62,15 @@
 
 
 }
+#logo_1
+{
+  height:50px;
+  width: 58px;
+}
 
 /*MOBILE FOOTER*/
 @media only screen and (max-width: 1024px) {
-  #footer {
+  .footer {
   text-align:center;
    margin-left:0;
    left: 0;
@@ -212,7 +236,7 @@ h1, h2, h3, h4, h5, h6, #appn, #metadata {
 #header.header-fixed {
   /*AKO NI HILABTAN LATER*/
   background: black;  
-  opacity: 1;
+  opacity: 0.6;
   padding: 20px 0;
   height: 72px;
   transition: all 0.5s;
@@ -345,11 +369,11 @@ h1, h2, h3, h4, h5, h6, #appn, #metadata {
   padding: 0 8px 10px 8px;
   text-decoration: none;
   display: inline-block;
-  color: maroon;
+  color: gold;
   font-family: "Poppins", sans-serif;
   font-weight: bold;
   text-transform: uppercase;
-  font-size: 15px;
+  font-size: 13px;
   outline: none;
 }
 
@@ -663,20 +687,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   font-size: 18px;
   margin: 0 2px;
 }
-/*TITLE CSS*/
-.footer #bg
-{
-    position: absolute;
-    z-index: -1;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color:black;
-    opacity: 0.6;
-    width: 100%;
-    height: 100%;
-}
+
 
 .hidden
 {
@@ -749,3 +760,94 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 /*END OF SCROLL BAR STYLE*/
+
+
+/*Volume Slider*/
+input[type=range] {
+    /*removes default webkit styles*/
+    -webkit-appearance: none;
+    
+    /*fix for FF unable to apply focus style bug */
+    border: 1px solid white;
+    
+    /*required for proper track sizing in FF*/
+    width: 100px;
+}
+input[type=range]::-webkit-slider-runnable-track {
+    width: 300px;
+    height: 1px;
+ 
+    border: none;
+
+}
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: none;
+    height: 18px;
+    width: 12px;
+    background: goldenrod;
+    margin-top: -9px;
+}
+input[type=range]:focus {
+    outline: none;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #ccc;
+}
+
+input[type=range]::-moz-range-track {
+    width: 300px;
+    height: 5px;
+    background: #ddd;
+    border: none;
+    border-radius: 3px;
+}
+input[type=range]::-moz-range-thumb {
+    border: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: goldenrod;
+}
+
+/*hide the outline behind the border*/
+input[type=range]:-moz-focusring{
+    outline: 1px solid white;
+    outline-offset: -1px;
+}
+
+input[type=range]::-ms-track {
+    width: 300px;
+    height: 5px;
+    
+    /*remove bg colour from the track, we'll use ms-fill-lower and ms-fill-upper instead */
+    background: transparent;
+    
+    /*leave room for the larger thumb to overflow with a transparent border */
+    border-color: transparent;
+    border-width: 6px 0;
+
+    /*remove default tick marks*/
+    color: transparent;
+}
+input[type=range]::-ms-fill-lower {
+    background: #777;
+    border-radius: 10px;
+}
+input[type=range]::-ms-fill-upper {
+    background: #ddd;
+    border-radius: 10px;
+}
+input[type=range]::-ms-thumb {
+    border: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: goldenrod;
+}
+input[type=range]:focus::-ms-fill-lower {
+    background: #888;
+}
+input[type=range]:focus::-ms-fill-upper {
+    background: #ccc;
+}
