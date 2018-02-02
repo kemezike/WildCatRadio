@@ -23,7 +23,7 @@
   width: 74px;
   height: 70px;
   position:relative;
-  margin-right: 80px;
+  margin-right: 50px;
 }
 
 #play-button:hover{
@@ -40,10 +40,8 @@
   background-color:transparent;
   margin:auto;
   position:relative;
-  width: 80px;
-  padding-left:30px;
-  border: solid;
-  padding-right:30px;
+  width: 30px;
+  padding-left:65px;
 }
 
 
@@ -53,7 +51,7 @@
   color:gold;
   position:relative;
   font-size: 13pt;
-  padding-left: 50px;
+  padding-left: 40px;
   text-transform: uppercase;
 }
 

@@ -67,6 +67,7 @@ $(document).ready(function(){
               $('#mute-button').hide();
               $('#appn').hide();
               $('#play-button').css('margin-right', '10px');
+             
 
             }
             else
@@ -77,8 +78,9 @@ $(document).ready(function(){
               $('#minbutton').addClass("fa-window-minimize");
               $('#vol-control').show();
               $('#mute-button').show();
+              $('#play-button').css('margin-right', '50px');
               $('#appn').show();
-              $('#play-button').css('margin-right', '80px');
+      
             }
           }
         });
