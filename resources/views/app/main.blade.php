@@ -30,8 +30,9 @@
           <link rel="stylesheet" type="text/css" href="{{asset('wcr/css/chat.css')}}">
           <link rel="stylesheet" type="text/css" href="{{asset('wcr/lib/toastr/build/toastr.css')}}">
       <script>
-        setInterval(function(){chat()
-        },1000);
+     
+        setInterval(function(){chat();
+        },10000);
       </script>
 
       
@@ -68,7 +69,18 @@
           <div class="hero-container">
             <h1>CEBU INSTITUTE OF TECHNOLOGY - UNIVERSITY</h1>
             <h2>Home of the Wildcats</h2>
-            <button class="btn btn-default" style="border-style: solid;border-color:gold;background-color: transparent; border-radius: 5px;color:gold;" href="#about">Dedicate now</a>
+             <!-- DEDICATION FOR CP  -->
+              @if(!Auth::user())
+              <button class="btn btn-default ddcatcp" id="dedicationAccess"  type="button" title="Send Dedications" data-toggle="modal" data-target="#logModal">
+                Dedicate Now ! 
+              </button>
+              @endif
+              @if(Auth::user())
+              <button class="btn btn-default ddcatcp" type="button" title="Send Dedications" data-toggle="modal" data-target="#decModal">
+                Dedicate Now !
+              </button>
+              @endif
+              <!-- DEDICATION FOR CP  -->
           </div>
         </section><!-- #hero -->
 
@@ -319,18 +331,9 @@
                 <i id="refreshicon" class="fa fa-refresh fa-spin fa-3x fa-fw playsize" style="display:none"></i>
 
               </button>
-              <!-- DEDICATION FOR CP  -->
-              @if(!Auth::user())
-              <button class="btn btn-default kamatis" id="dedicationAccess"  type="button" title="Send Dedications" data-toggle="modal" data-target="#logModal">
-                <i class="fa fa-plus" aria-hidden="true"></i>&nbsp;<i class="fa fa-file-text" aria-hidden="true"></i>
-              </button>
-              @endif
-              @if(Auth::user())
-              <button class="btn btn-default kamatis" type="button" title="Send Dedications" data-toggle="modal" data-target="#decModal">
-                <i class="fa fa-plus" aria-hidden="true"></i>&nbsp;<i class="fa fa-file-text" aria-hidden="true"></i>
-              </button>
-              @endif
+               <span style="position:absolute;margin-top: 50px;margin-left: 170px; "><label>Listeners:</label><span>1000</span></span>
               <marquee width="35%" height="20px" id="metadataholder"><span id="metadata"> Radio Connecting . . </span> </marquee>
+             
               <a class="btn btn-default" id="mute-button"><i class="fa fa-volume-up mutesize" aria-hidden="true" id="muteonicon"></i></a> 
               <input id="vol-control" type="range" min="0" max="100" step="1" oninput="SetVolume(this.value)" onchange="SetVolume(this.value)"/>
 
@@ -367,14 +370,13 @@
           <script src="{{asset('wcr/lib/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
           <script src="{{asset('wcr/lib/easing/easing.min.js')}}"></script>
           <script src="{{asset('wcr/lib/wow/wow.min.js')}}"></script>
-          <script src="{{asset('wcr/lib/bootstrap/js/bootstrap.min.js')}}"></script>
+          <!-- <script src="{{asset('wcr/lib/bootstrap/js/bootstrap.min.js')}}"></script> -->
           <script src="{{asset('wcr/lib/waypoints/waypoints.min.js')}}"></script>
           <script src="{{asset('wcr/lib/counterup/counterup.min.js')}}"></script>
           <script src="{{asset('wcr/lib/superfish/hoverIntent.js')}}"></script>
           <script src="{{asset('wcr/lib/superfish/superfish.min.js')}}"></script>
           <script src="{{asset('wcr/lib/toastr/build/toastr.min.js')}}"></script>
           <script src="{{asset('wcr/lib/moment.js')}}"></script>
-          <script src="https://unpkg.com/popper.js@1.12.9/dist/umd/popper.js""></script>
 
           <!-- Contact Form JavaScript File -->
           

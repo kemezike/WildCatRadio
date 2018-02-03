@@ -7,7 +7,8 @@
         },
         success: function(data) {
          console.log(data)
-         $('#decModal').modal('hide');
+         toastr.success('Daghan Salamat!', 'Dedication Sent!');
+         $("#decModal").modal('hide');
          $('#message').val("");
      }
  });
