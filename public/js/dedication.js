@@ -7,6 +7,8 @@
         },
         success: function(data) {
          console.log(data)
+         $('#decModal').modal('hide');
+         $('#message').val("");
      }
  });
    }

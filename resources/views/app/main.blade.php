@@ -27,8 +27,8 @@
 
       <!-- OTHER CSS  -->
       <link rel="stylesheet" type="text/css" href="{{asset('wcr/css/buttons.css')}}">
-      <link rel="stylesheet" type="text/css" href="{{asset('wcr/css/chat.css')}}">
-
+          <link rel="stylesheet" type="text/css" href="{{asset('wcr/css/chat.css')}}">
+          <link rel="stylesheet" type="text/css" href="{{asset('wcr/lib/toastr/build/toastr.css')}}">
       <script>
         setInterval(function(){chat()
         },1000);
@@ -68,6 +68,7 @@
           <div class="hero-container">
             <h1>CEBU INSTITUTE OF TECHNOLOGY - UNIVERSITY</h1>
             <h2>Home of the Wildcats</h2>
+            <button class="btn btn-default" style="border-style: solid;border-color:gold;background-color: transparent; border-radius: 5px;color:gold;" href="#about">Dedicate now</a>
           </div>
         </section><!-- #hero -->
 
@@ -318,9 +319,22 @@
                 <i id="refreshicon" class="fa fa-refresh fa-spin fa-3x fa-fw playsize" style="display:none"></i>
 
               </button>
+              <!-- DEDICATION FOR CP  -->
+              @if(!Auth::user())
+              <button class="btn btn-default kamatis" id="dedicationAccess"  type="button" title="Send Dedications" data-toggle="modal" data-target="#logModal">
+                <i class="fa fa-plus" aria-hidden="true"></i>&nbsp;<i class="fa fa-file-text" aria-hidden="true"></i>
+              </button>
+              @endif
+              @if(Auth::user())
+              <button class="btn btn-default kamatis" type="button" title="Send Dedications" data-toggle="modal" data-target="#decModal">
+                <i class="fa fa-plus" aria-hidden="true"></i>&nbsp;<i class="fa fa-file-text" aria-hidden="true"></i>
+              </button>
+              @endif
               <marquee width="35%" height="20px" id="metadataholder"><span id="metadata"> Radio Connecting . . </span> </marquee>
               <a class="btn btn-default" id="mute-button"><i class="fa fa-volume-up mutesize" aria-hidden="true" id="muteonicon"></i></a> 
               <input id="vol-control" type="range" min="0" max="100" step="1" oninput="SetVolume(this.value)" onchange="SetVolume(this.value)"/>
+
+              <!-- DEDICATION FOR PC  -->
               @if(!Auth::user())
               <button class="btn btn-default smallbuts" id="dedicationAccess"  type="button" title="Send Dedications" data-toggle="modal" data-target="#logModal">
                 <i class="fa fa-plus" aria-hidden="true"></i>&nbsp;<i class="fa fa-file-text" aria-hidden="true"></i>
@@ -332,7 +346,7 @@
               </button>
               @endif
 
-              <button class="btn btn-default smallbuts" type="button" id="shenbogoka" title="Minimizae">
+              <button class="btn btn-default smallbuts" type="button" id="mmbutton" title="Minimizae">
 
                 <i id="minbutton" class="fa fa-window-minimize" aria-hidden="true"></i>
 
@@ -358,6 +372,7 @@
           <script src="{{asset('wcr/lib/counterup/counterup.min.js')}}"></script>
           <script src="{{asset('wcr/lib/superfish/hoverIntent.js')}}"></script>
           <script src="{{asset('wcr/lib/superfish/superfish.min.js')}}"></script>
+          <script src="{{asset('wcr/lib/toastr/build/toastr.min.js')}}"></script>
           <script src="{{asset('wcr/lib/moment.js')}}"></script>
           <script src="https://unpkg.com/popper.js@1.12.9/dist/umd/popper.js""></script>
 
@@ -366,6 +381,7 @@
           <!-- Template Main Javascript File -->
           <script src="{{asset('wcr/js/main.js')}}"></script>
           <script src="{{asset('wcr/js/playtrigger.js')}}"></script>
+          <script src="{{asset('wcr/js/toaststyle.js')}}"></script>
           <script src="{{asset('js/displayDedication.js')}}"></script>
           <script src="{{asset('wcr/lib/Jplayer/dist/jplayer/jquery.jplayer.min.js')}}"></script>
           <script src="{{asset('js/dedication.js')}}"></script>

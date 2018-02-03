@@ -9,7 +9,7 @@ function register(){
         },
         success: function(data) {
           $("#dedicationTitle").load('/main #dedicationTitle');
-         console.log(data)
+         console.log(data);
        }
      });
     }

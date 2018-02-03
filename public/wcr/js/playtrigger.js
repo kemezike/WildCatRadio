@@ -11,7 +11,7 @@ $(document).ready(function(){
         $("#play-button").bind({
             // Click function
             click:function(){
-            // CHECKING OF THE CONNECTING IF TRUE HE WILL STREAM
+            // CHECKING OF THE CONNECTING IF TRUE IT WILL STREAM
             if ( $('#excheck').val() == "true" )
             {
               if( $('#streamicon').hasClass("fa-play")){
@@ -32,7 +32,9 @@ $(document).ready(function(){
             // ELSE IF NO CONNECTION IT WILL INFORM THE USER 
             else
             {
-              alert("Radio is Offline");
+              toastr.error('Please Try Again Later', 'Radio is Offline');
+
+
             }
           }
         });
@@ -56,7 +58,8 @@ $(document).ready(function(){
           }
         });
 
-          $("#shenbogoka").bind({
+          // MiniMaximize BUTTON
+          $("#mmbutton").bind({
           click:function(){
             if($('#metafooter').hasClass("footer")){
               $('#metafooter').removeClass("footer");
@@ -67,8 +70,6 @@ $(document).ready(function(){
               $('#mute-button').hide();
               $('#appn').hide();
               $('#play-button').css('margin-right', '10px');
-             
-
             }
             else
             {

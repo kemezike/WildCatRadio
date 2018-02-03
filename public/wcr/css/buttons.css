@@ -54,7 +54,21 @@
   padding-left: 40px;
   text-transform: uppercase;
 }
+/*dedication for cp*/
+.kamatis{
+  display:none;
+  font-size:1em;
+  line-height:1.1em;
+  color:gold;
+  background-color:transparent;
+  position:relative;
+}
 
+.kamatis:hover{
+  color:#ffffff;
+  text-decoration:none;
+  border-color:#ff7536;
+}
 /* VOLUME CONTROL */
 #vol-control
 {
@@ -115,6 +129,10 @@
 {
   display:none;
 }
+.kamatis
+{
+  display:block;
+}
 }
 @media only screen and (max-width: 1024px) {
  #play-button{
@@ -123,28 +141,23 @@
   line-height:1.1em;
   color:gold;
   background-color:transparent;
-  margin:auto;
  border-radius: 30%;
   width: 78px;
   height: 78px;
+  margin-right: 10px;
   position:relative;
   float:left;
 
 }
+#metadataholder
+{
+  width: 50%;
+  margin-left: 3px;
+}
 }
 @media only screen and (max-width: 1024px) {
  #mute-button{
-  border:.3em solid gold;
-  font-size:1em;
-  line-height:1.1em;
-  color:gold;
-  background-color:transparent;
-  margin:auto;
- border-radius: 50%;
-  width: 45px;
-  height: 45px;
-  position:relative;
-  float:left;
+display:none;
 }
 }
 /* END OF MOBILE*/
