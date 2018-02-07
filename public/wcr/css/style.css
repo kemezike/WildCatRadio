@@ -69,7 +69,7 @@
 }
 
 /*MOBILE FOOTER*/
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 728px) {
   .footer {
   text-align:center;
    margin-left:0;
@@ -141,7 +141,7 @@ h1, h2, h3, h4, h5, h6, #appn, #metadata {
   transition: background 0.5s;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 728px) {
   .back-to-top {
     bottom: 15px;
   }
@@ -192,7 +192,7 @@ h1, h2, h3, h4, h5, h6, #appn, #metadata {
 
 }*/
 
-@media (max-width: 768px) {
+@media (max-width: 728px) {
   #header #logo h1 {
     font-size: 26px;
   }
@@ -277,7 +277,7 @@ h1, h2, h3, h4, h5, h6, #appn, #metadata {
   color: gold;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 728px) {
   #hero h1 {
     font-size: 28px;
     line-height: 36px;
@@ -291,7 +291,7 @@ h1, h2, h3, h4, h5, h6, #appn, #metadata {
   color: gold;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 728px) {
   #hero h2 {
     font-size: 18px;
     line-height: 24px;
@@ -358,7 +358,7 @@ h1, h2, h3, h4, h5, h6, #appn, #metadata {
   margin: 0;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 728px) {
   #nav-menu-container {
     display: none;
   }
@@ -449,7 +449,7 @@ h1, h2, h3, h4, h5, h6, #appn, #metadata {
   color: gold;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 728px) {
   #mobile-nav-toggle {
     display: inline;
   }
@@ -584,7 +584,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   font-size: 32px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 728px) {
   #about .about-container .title {
     padding-top: 15px;
   }

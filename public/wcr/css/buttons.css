@@ -62,10 +62,8 @@
   line-height:1.1em;
   color:gold;
   background-color:transparent;
-  position:relative;
   border-style: solid;
   border-radius: 15px;
-  display:none;
   border-color: gold;
   font-style: bold;
   padding: 15px 20px 15px 20px;
@@ -110,7 +108,7 @@
 
 /* MEDIA BUTTONS */
 
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 728px) {
  #play-button{
   border:.3em solid gold;
   font-size:1em;
@@ -137,13 +135,9 @@
 {
   display:none;
 }
-.ddcatcp
-{
-  display:block;
-  margin-left: 98px;
+
 }
-}
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 728px) {
  #play-button{
   border:.3em solid gold;
   font-size:1em;
@@ -165,7 +159,7 @@
   margin-top: 20px;
 }
 }
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 728px) {
  #mute-button{
 display:none;
 }

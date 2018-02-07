@@ -324,7 +324,7 @@
             </audio>
             <!-- END OF THE AUDIO STREAM -->
             <div class="b1">
-              <span id="appn"><img src="{{asset('wcr/img/tiger.png')}}" alt="BOGO" title="BOGO" id="logo_1"/></img>&nbsp;WILDCATS RADIO</span>
+              <span id="appn"><img src="{{asset('wcr/img/tiger.png')}}" alt="Logo" title="Logo" id="logo_1"/></img>&nbsp;WILDCATS RADIO</span>
               <button class="btn btn-default" type="button" id="play-button">
 
                 <i class="fa fa-play playsize" aria-hidden="true" id="streamicon"></i>
