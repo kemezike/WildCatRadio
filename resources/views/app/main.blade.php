@@ -331,7 +331,8 @@
                 <i id="refreshicon" class="fa fa-refresh fa-spin fa-3x fa-fw playsize" style="display:none"></i>
 
               </button>
-               <span style="position:absolute;margin-top: 50px;margin-left: 170px; "><label>Listeners:</label><span>1000</span></span>
+               <input type="text" style="display: none;" id="volcheckerggwp"/>
+               <span style="position:absolute;margin-top: 50px;margin-left: 170px; "><label>Listeners:</label><span id="listeners">Identifying Listeners..</span></span>
               <marquee width="35%" height="20px" id="metadataholder"><span id="metadata"> Radio Connecting . . </span> </marquee>
              
               <a class="btn btn-default" id="mute-button"><i class="fa fa-volume-up mutesize" aria-hidden="true" id="muteonicon"></i></a> 

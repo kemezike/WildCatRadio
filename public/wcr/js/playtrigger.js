@@ -17,7 +17,7 @@ $(document).ready(function(){
               if( $('#streamicon').hasClass("fa-play")){
                 $('#streamicon').removeClass("fa-play");
                 $('#streamicon').addClass("fa-stop");
-                music.setAttribute('src',"http://192.168.43.45:8000/stream.m3u");
+                music.setAttribute('src',"http://192.168.254.100:8000/stream.m3u");
                 music.play();
               }
               else if ($('#streamicon').hasClass("fa-stop"))
@@ -46,7 +46,7 @@ $(document).ready(function(){
               music.muted = false;
               $('#muteonicon').removeClass("fa-volume-off");
               $('#muteonicon').addClass("fa-volume-up");
-               $('#vol-control').val(100);
+              $('#vol-control').val(100);
             }
             else
             {
@@ -90,7 +90,7 @@ $(document).ready(function(){
 function checkNetConnection(){ 
   $.ajax({
    type: 'GET',
-   url: 'http://192.168.43.45:8000',
+   url: 'http://192.168.254.100:8000',
    success: function(data, textStatus, XMLHttpRequest) {
     $('#excheck').val("true");
     if($('#excheck').val("true") && $('#streamicon').hasClass("fa-refresh fa-spin fa-3x fa-fw"))
@@ -129,7 +129,7 @@ function loadingAnimation() {
  }
 
 function radioTitle() {
-  var url = 'http://192.168.43.45:8000/json.xsl';  
+  var url = 'http://192.168.254.100:8000/json.xsl';  
   $.ajax({
    type: 'GET',
    url: url,
@@ -150,21 +150,22 @@ function radioTitle() {
 
 function SetVolume(val)
     {
+    	$('#volcheckerggwp').val(val);
         var player = document.getElementById('music');
         console.log('Before: ' + player.volume);
         player.volume = val / 100;
         console.log('After: ' + player.volume);
-        if($('#vol-control').val() == 100)
+        if((val/100) == 100)
         {
             $('#muteonicon').removeClass("fa-volume-off");
             $('#muteonicon').addClass("fa-volume-up");
         }
-        else if($('#vol-control').val() == 0)
+        else if((val/100) == 0)
         {
             $('#muteonicon').removeClass("fa-volume-up");
             $('#muteonicon').addClass("fa-volume-off");
         }
-        else if($('#vol-control').val() > 0)
+        else if((val/100) > 0 && ((val/100) != 100) )
         {
              $('#muteonicon').removeClass("fa-volume-off");
             $('#muteonicon').addClass("fa-volume-up");;
