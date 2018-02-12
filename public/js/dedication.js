@@ -1,3 +1,4 @@
+    // SEND DEDICATION
     function send(){
        $.ajax({
           type: 'post',

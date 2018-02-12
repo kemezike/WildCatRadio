@@ -1,3 +1,4 @@
+// DISPLAY DEDICATION
  function chat(){
  	$.ajax({
  		type: 'GET',
