@@ -8,7 +8,7 @@
       <meta content="" name="description">
 
 
-
+      <link rel="stylesheet" type="text/css" href="{{asset('wcr/lib/datatables/dataTables.bootstrap4.css')}}">
       <!-- Bootstrap CSS File -->
 
       <link href="{{asset('wcr/lib/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
@@ -27,10 +27,11 @@
 
       <!-- OTHER CSS  -->
       <link rel="stylesheet" type="text/css" href="{{asset('wcr/css/buttons.css')}}">
-          <link rel="stylesheet" type="text/css" href="{{asset('wcr/css/chat.css')}}">
-          <link rel="stylesheet" type="text/css" href="{{asset('wcr/lib/toastr/build/toastr.css')}}">
+      <link rel="stylesheet" type="text/css" href="{{asset('wcr/css/tablebuttons.css')}}">
+      <link rel="stylesheet" type="text/css" href="{{asset('wcr/css/chat.css')}}">
+      <link rel="stylesheet" type="text/css" href="{{asset('wcr/lib/toastr/build/toastr.css')}}">
       <script>
-     
+
         setInterval(function(){chat();
         },10000);
       </script>
@@ -69,18 +70,18 @@
           <div class="hero-container">
             <h1>CEBU INSTITUTE OF TECHNOLOGY - UNIVERSITY</h1>
             <h2>Home of the Wildcats</h2>
-             <!-- DEDICATION FOR CP  -->
-              @if(!Auth::user())
-              <button class="btn btn-default ddcatcp" id="dedicationAccess"  type="button" title="Send Dedications" data-toggle="modal" data-target="#logModal">
-                Dedicate Now ! 
-              </button>
-              @endif
-              @if(Auth::user())
-              <button class="btn btn-default ddcatcp" type="button" title="Send Dedications" data-toggle="modal" data-target="#decModal">
-                Dedicate Now !
-              </button>
-              @endif
-              <!-- DEDICATION FOR CP  -->
+            <!-- DEDICATION FOR CP  -->
+            @if(!Auth::user())
+            <button class="btn btn-default ddcatcp" id="dedicationAccess"  type="button" title="Send Dedications" data-toggle="modal" data-target="#logModal">
+              Dedicate Now ! 
+            </button>
+            @endif
+            @if(Auth::user())
+            <button class="btn btn-default ddcatcp" type="button" title="Send Dedications" data-toggle="modal" data-target="#decModal">
+              Dedicate Now !
+            </button>
+            @endif
+            <!-- DEDICATION FOR CP  -->
           </div>
         </section><!-- #hero -->
 
@@ -114,40 +115,38 @@
           About Us Section
           ============================-->
           <section id="about">
-            <div class="container">
-              <div class="row about-container">
-
-                <div class="col-lg-6 content order-lg-1 order-2">
-                  <h2 class="title">Few Words About Us</h2>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                  </p>
-
-                  <div class="icon-box wow fadeInUp">
-                    <div class="icon"><i class="fa fa-shopping-bag"></i></div>
-                    <h4 class="title"><a href="">Eiusmod Tempor</a></h4>
-                    <p class="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi</p>
-                  </div>
-
-                  <div class="icon-box wow fadeInUp" data-wow-delay="0.2s">
-                    <div class="icon"><i class="fa fa-photo"></i></div>
-                    <h4 class="title"><a href="">Magni Dolores</a></h4>
-                    <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-                  </div>
-
-                  <div class="icon-box wow fadeInUp" data-wow-delay="0.4s">
-                    <div class="icon"><i class="fa fa-bar-chart"></i></div>
-                    <h4 class="title"><a href="">Dolor Sitema</a></h4>
-                    <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
-                  </div>
-
-                </div>
-
-                <div class="col-lg-6 background order-lg-2 order-1 wow fadeInRight"></div>
+            <div class="container-fluid" id="CONTAINER">
+              <!-- Example Tables Card -->
+              <div class="card mb-4" id="tablecard">
+               <div class="card-header blue" >
+                <button type="submit" class="btn btn-primary btn-md" id="refreshtab"><i class="fa fa-refresh" aria-hidden="true"></i>&nbsp;Refresh</button>
               </div>
-
+              <div class="card-body" id="TableBODY" >
+                <div class="table-responsive">
+                  <table class="table table-bordered" width="100%" id="dataTable" cellspacing="0">
+                    <thead>
+                      <tr>
+                        <th title="View Message"></th>
+                        <th></th>
+                        <th></th>
+                        <th>User Name</th>
+                        <th></th>
+                        <th>College Name</th>
+                        <th>Date Added</th>
+                        <th>Date Updated</th>
+                      </tr>
+                    </thead>
+                  </table>
+                </div>
+              </div>
+              <div class="card-footer small text-muted">
+                Made by #GTE OJT
+              </div>
             </div>
-          </section><!-- #about -->
+
+          </div>
+          <!-- /.container-fluid -->
+        </section><!-- #about -->
 
            <!--==========================
           Dedication Section
@@ -317,7 +316,7 @@
         ============================-->
         <div class="footer" id="metafooter">
           <div id="bg"></div>
-          <input class="hidden" id="excheck" type="text"/>
+          <input id="excheck" class="hidden" type="text"/>
           <!-- FOR THE AUDIO STREAM -->
           <audio id="music">
             <source id="stream" src="#">
@@ -331,10 +330,10 @@
                 <i id="refreshicon" class="fa fa-refresh fa-spin fa-3x fa-fw playsize" style="display:none"></i>
 
               </button>
-               <input type="text" style="display: none;" id="volcheckerggwp"/>
-               <span style="position:absolute;margin-top: 50px;margin-left: 170px; "><label>Listeners:</label><span id="listeners">Identifying Listeners..</span></span>
+              <span style="position:absolute;margin-top: 50px;margin-left: 170px; "><label>Listeners:</label><span id="listeners">Identifying Listeners..</span></span>
+
               <marquee width="35%" height="20px" id="metadataholder"><span id="metadata"> Radio Connecting . . </span> </marquee>
-             
+
               <a class="btn btn-default" id="mute-button"><i class="fa fa-volume-up mutesize" aria-hidden="true" id="muteonicon"></i></a> 
               <input id="vol-control" type="range" min="0" max="100" step="1" oninput="SetVolume(this.value)" onchange="SetVolume(this.value)"/>
 
@@ -371,7 +370,6 @@
           <script src="{{asset('wcr/lib/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
           <script src="{{asset('wcr/lib/easing/easing.min.js')}}"></script>
           <script src="{{asset('wcr/lib/wow/wow.min.js')}}"></script>
-          <!-- <script src="{{asset('wcr/lib/bootstrap/js/bootstrap.min.js')}}"></script> -->
           <script src="{{asset('wcr/lib/waypoints/waypoints.min.js')}}"></script>
           <script src="{{asset('wcr/lib/counterup/counterup.min.js')}}"></script>
           <script src="{{asset('wcr/lib/superfish/hoverIntent.js')}}"></script>
@@ -379,7 +377,11 @@
           <script src="{{asset('wcr/lib/toastr/build/toastr.min.js')}}"></script>
           <script src="{{asset('wcr/lib/moment.js')}}"></script>
 
-          <!-- Contact Form JavaScript File -->
+          <!-- DATATABLes JS -->
+          <script src="{{asset('wcr/lib/datatables/jquery.dataTables.js')}}"></script>
+          <script src="{{asset('wcr/js/dedicationview.js')}}"></script>
+          <script src="{{asset('wcr/lib/datatables/dataTables.bootstrap4.js')}}"></script>
+
           
           <!-- Template Main Javascript File -->
           <script src="{{asset('wcr/js/main.js')}}"></script>
@@ -389,6 +391,8 @@
           <script src="{{asset('wcr/lib/Jplayer/dist/jplayer/jquery.jplayer.min.js')}}"></script>
           <script src="{{asset('js/dedication.js')}}"></script>
           <script src="{{asset('wcr/js/login.js')}}"></script>
+          <script src="{{asset('wcr/lib/popper/popper.min.js')}}"></script>
+          <script src="{{asset('wcr/lib/bootstrap/js/bootstrap.min.js')}}"></script>
         </body>
 
         <!-- MODALS -->
@@ -464,5 +468,22 @@
         @endif
         <!-- End Dedication Modal -->
 
-        <!-- END OF MODALS-->
-        </html>
+        <!-- VIEW DEDICATION MODAL -->
+        <div class="modal fade" id="viewdecModal" tabindex="-1" role="dialog" aria-labelledby="viewModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4> Message </h4>
+              </div>
+              <div class="modal-body">
+                <textarea class="form-control desc" id="ddcatview" style="height:300px;" Placeholder="Code Description" disabled></textarea>
+              </div>
+              <div class="modal-footer">
+               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+             </div>
+           </div>
+         </div>
+       </div>
+       <!-- VIEW DEDICATION MODAL -->
+       <!-- END OF MODALS-->
+       </html>

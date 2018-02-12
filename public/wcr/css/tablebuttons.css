@@ -1,0 +1,28 @@
+td.details-control {
+    text-align:center;
+    color:blue;
+    cursor: pointer;
+}
+td.details-control2{
+	text-align:center;
+    color:red;
+    cursor: pointer;
+}
+td.details-control3{
+	text-align:center;
+    color:blue;
+    cursor: pointer;
+}
+td.details-control4{
+  text-align:center;
+    color:orange;
+    cursor: pointer;
+}
+td.details-control5{
+  text-align:center;
+    color:blue;
+    cursor: pointer;
+}
+.hide_column {
+    display : none;
+}

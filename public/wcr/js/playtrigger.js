@@ -1,11 +1,14 @@
 $(document).ready(function(){
 
-  setInterval(function(){checkNetConnection();}, 6000);
+  var kapoy = setInterval(function(){WhenPause();}, 1000);
+  setInterval(function(){checkNetConnection(kapoy);}, 6000);
   setInterval(function(){radioTitle();}, 6000);
+  
 
 
   var music = document.getElementById('music');
   var stream = document.getElementById('stream');
+  var refreshIntervalId;
   var ts=(new Date()).getTime();
         // The play button
         $("#play-button").bind({
@@ -18,6 +21,7 @@ $(document).ready(function(){
                 $('#streamicon').removeClass("fa-play");
                 $('#streamicon').addClass("fa-stop");
                 music.setAttribute('src',"http://192.168.254.100:8000/stream.m3u");
+                music.controls = false ;
                 music.play();
               }
               else if ($('#streamicon').hasClass("fa-stop"))
@@ -42,18 +46,18 @@ $(document).ready(function(){
         // MUTE BUTTON
         $("#mute-button").bind({
           click:function(){
-            if(music.muted){
-              music.muted = false;
+            if(music.volume > 0){
               $('#muteonicon').removeClass("fa-volume-off");
               $('#muteonicon').addClass("fa-volume-up");
-              $('#vol-control').val(100);
+              $('#vol-control').val(0);
+              SetVolume(0);
             }
             else
             {
-              music.muted = true;
               $('#muteonicon').removeClass("fa-volume-up");
               $('#muteonicon').addClass("fa-volume-off");
-              $('#vol-control').val(0);
+              $('#vol-control').val(100);
+              SetVolume(100);
             }
           }
         });
@@ -87,7 +91,7 @@ $(document).ready(function(){
         });
       });
 
-function checkNetConnection(){ 
+function checkNetConnection(val){ 
   $.ajax({
    type: 'GET',
    url: 'http://192.168.254.100:8000',
@@ -98,9 +102,11 @@ function checkNetConnection(){
       $('#streamicon').removeClass("fa-refresh fa-spin fa-3x fa-fw");
       $('#streamicon').addClass("fa-play");
     }
+    val = setInterval( WhenPause(), 10000 );
   },
   error: function(XMLHttpRequest, textStatus, errorThrown) {
     $('#excheck').val("false");
+    clearInterval(val);
     if($('#excheck').val("false") && $('#streamicon').hasClass("fa-stop") )
     {
       $('#streamicon').removeClass("fa-stop");
@@ -171,3 +177,22 @@ function SetVolume(val)
             $('#muteonicon').addClass("fa-volume-up");;
         }
     }
+
+function WhenPause()
+    {
+        var music = document.getElementById('music');
+        if( music.paused == true )
+        {
+        	$('#pausechecker').val("true");
+        	$('#streamicon').removeClass("fa-stop");
+            $('#streamicon').addClass("fa-play");
+        	music.setAttribute("src",'#');
+        	$('#stream').removeAttr('src');
+        }
+        else
+        {
+        	$('#pausechecker').val('false');
+        }
+
+    }
+
