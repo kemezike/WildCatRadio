@@ -8,10 +8,6 @@ use Auth;
 
 class RegistrationController extends Controller
 {
-    public function create(){
-       return view('app.login');
-   }
-
    public function store(){
     	//Validate Form
     $name = request('name');
