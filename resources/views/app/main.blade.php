@@ -40,6 +40,18 @@
     </head>
 
     <body>
+    @if(count($errors))
+<div class="formgroup">
+  <div class="alert alert-danger alert-dismissable">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <ul>
+      @foreach($errors->all() as $error)
+      <li>{{$error}}</li>
+      @endforeach
+    </ul> 
+  </div>
+</div>   
+@endif
       <!--==========================
       Header
       ============================-->
@@ -58,6 +70,9 @@
               <li><a href="#team">Team</a></li>
               <li><a href="#schedule">Schedule</a></li>
               <li><a href="#about">About Us</a></li>
+              @if(Auth::user())
+              <li><a href="#">Welcome, {{Auth::user()->name}}</a></li>
+              @endif
             </ul>
           </nav><!-- #nav-menu-container -->
         </div>
@@ -115,43 +130,16 @@
           About Us Section
           ============================-->
           <section id="about">
-            <div class="container-fluid" id="CONTAINER">
-              <!-- Example Tables Card -->
-              <div class="card mb-4" id="tablecard">
-               <div class="card-header blue" >
-                <button type="submit" class="btn btn-primary btn-md" id="refreshtab"><i class="fa fa-refresh" aria-hidden="true"></i>&nbsp;Refresh</button>
-              </div>
-              <div class="card-body" id="TableBODY" >
-                <div class="table-responsive">
-                  <table class="table table-bordered" width="100%" id="dataTable" cellspacing="0">
-                    <thead>
-                      <tr>
-                        <th title="View Message"></th>
-                        <th></th>
-                        <th></th>
-                        <th>User Name</th>
-                        <th></th>
-                        <th>College Name</th>
-                        <th>Date Added</th>
-                        <th>Date Updated</th>
-                      </tr>
-                    </thead>
-                  </table>
-                </div>
-              </div>
-              <div class="card-footer small text-muted">
-                Made by #GTE OJT
-              </div>
-            </div>
 
-          </div>
-          <!-- /.container-fluid -->
-        </section><!-- #about -->
+            <!-- /.container-fluid -->
+          </section><!-- #about -->
 
            <!--==========================
           Dedication Section
           ============================-->
           <section id="dedications">
+
+
 
             <div class="container wow fadeInUp">
               <div class="section-header">
@@ -160,18 +148,71 @@
                 <p class="section-description">Ipahayag ang iyong Storya gamit aning na Serbisyo</p>
               </div>
 
-              <div class="container chatbox col-lg-12 wow fadeInRight">
-                <div class="row about-container">
-                  <div class="scrollbar" id="style-3">
-                    <div class="col-lg-12 content order-lg-1 order-2" id="chatbox">                    
-
-                    </div>
+              @if(Auth::user())
+              @if(Auth::user()->type=='admin')
+              <div class="container-fluid" id="CONTAINER">
+                <!-- Example Tables Card -->
+                <div class="card mb-4" id="tablecard">
+                 <div class="card-header blue" >
+                  <button type="submit" class="btn btn-primary btn-md" id="refreshtab"><i class="fa fa-refresh" aria-hidden="true"></i>&nbsp;Refresh</button>
+                </div>
+                <div class="card-body" id="TableBODY" >
+                  <div class="table-responsive">
+                    <table class="table table-bordered" width="100%" id="dataTable" cellspacing="0">
+                      <thead>
+                        <tr>
+                          <th title="View Message"></th>
+                          <th></th>
+                          <th></th>
+                          <th>User Name</th>
+                          <th></th>
+                          <th>College Name</th>
+                          <th>Date Added</th>
+                          <th>Date Updated</th>
+                        </tr>
+                      </thead>
+                    </table>
                   </div>
-
+                </div>
+                <div class="card-footer small text-muted">
+                  Made by #GTE OJT
                 </div>
               </div>
             </div>
-          </section><!-- #dedication -->
+            @elseif(Auth::user()->type=='user')
+
+
+            <div class="container chatbox col-lg-12 wow fadeInRight">
+              <div class="row about-container">
+                <div class="scrollbar" id="style-3">
+                  <div class="col-lg-12 content order-lg-1 order-2" id="chatbox">                    
+
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            @endif
+            @elseif(!Auth::user())
+
+
+            <div class="container chatbox col-lg-12 wow fadeInRight">
+              <div class="row about-container">
+                <div class="scrollbar" id="style-3">
+                  <div class="col-lg-12 content order-lg-1 order-2" id="chatbox">                    
+
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            @endif
+
+
+
+          </div>
+
+        </section><!-- #dedication -->
 
 
          <!--==========================
@@ -338,16 +379,16 @@
               <input id="vol-control" type="range" min="0" max="100" step="1" oninput="SetVolume(this.value)" onchange="SetVolume(this.value)"/>
 
               <!-- DEDICATION FOR PC  -->
-              @if(!Auth::user())
+              {{-- @if(!Auth::user()) --}}
               <button class="btn btn-default smallbuts" id="dedicationAccess"  type="button" title="Send Dedications" data-toggle="modal" data-target="#logModal">
                 <i class="fa fa-plus" aria-hidden="true"></i>&nbsp;<i class="fa fa-file-text" aria-hidden="true"></i>
               </button>
-              @endif
-              @if(Auth::user())
+              {{-- @endif --}}
+              {{-- @if(Auth::user()) --}}
               <button class="btn btn-default smallbuts" type="button" title="Send Dedications" data-toggle="modal" data-target="#decModal">
                 <i class="fa fa-plus" aria-hidden="true"></i>&nbsp;<i class="fa fa-file-text" aria-hidden="true"></i>
               </button>
-              @endif
+              {{-- @endif --}}
 
               <button class="btn btn-default smallbuts" type="button" id="mmbutton" title="Minimizae">
 
@@ -397,7 +438,7 @@
 
         <!-- MODALS -->
         <!-- Dedication Modal -->
-        @if(Auth::user())
+        {{-- @if(Auth::user()) --}}
         <div class="modal fade" id="decModal" tabindex="-1" role="dialog" aria-labelledby="decModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -410,10 +451,8 @@
               <div class="modal-body">
                 <form>
                   <div class="form-group">
-                    <label for="recipient-name" class="col-form-label">Recipient:</label>
-                    <input type="text" class="form-control" id="recipient-name" value="@if(Auth::user())
-                    {{Auth::user()->name}}
-                    @endif">
+                    <label for="song-name" class="col-form-label">Song:</label>
+                    <input type="text" class="form-control" id="song-name" name="song-name">
                   </div>
                   <div class="form-group">
                     <label for="message-text" class="col-form-label" >Message:</label>
@@ -428,11 +467,11 @@
             </div>
           </div>
         </div>
-        @endif
+        {{-- @endif --}}
         <!-- End Dedication Modal -->
 
         <!-- Login Modal -->
-        @if(!Auth::user())
+        {{-- @if(!Auth::user()) --}}
         <div class="modal fade" id="logModal" tabindex="-1" role="dialog" aria-labelledby="decModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -465,7 +504,7 @@
             </div>
           </div>
         </div>
-        @endif
+        {{-- @endif --}}
         <!-- End Dedication Modal -->
 
         <!-- VIEW DEDICATION MODAL -->
