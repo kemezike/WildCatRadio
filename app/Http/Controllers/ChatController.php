@@ -14,13 +14,17 @@ class ChatController extends Controller
 
 	public function store(Request $request){
 // validate user
-
+  $this->validate(request(),[
+  	'message' => 'required',
+  	'song_name'=>'required'
+    ]);
 
 
 //create chat and save
 		Chat::create([
 			'user_id'=>Auth::user()->id,
 			'message'=>$request->message,
+			'song_name'=>$request->song_name,
 			]);
 
 		return Auth::user()->id;
@@ -32,7 +36,7 @@ class ChatController extends Controller
 		->addSelect('chats.id as chat_id','users.id as user_id','users.name as name','message','colleges.name as college_name',
 			'chats.created_at as created_at','chats.updated_at as updated_at')
 		->orderBy('chat_id', 'desc')
-		->take(10)->get();
+		->get();
 
 		return $chats;
 	}
