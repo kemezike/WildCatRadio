@@ -33,7 +33,7 @@ class ChatController extends Controller
 	public function getChat(){
 		$chats = Chat::leftJoin('users','users.id','=','chats.user_id')
 		->leftJoin('colleges','colleges.id','=','users.college_id')
-		->addSelect('chats.id as chat_id','users.id as user_id','users.name as name','message','colleges.name as college_name',
+		->addSelect('chats.id as chat_id','users.id as user_id','users.name as name','message','colleges.name as college_name','song_name',
 			'chats.created_at as created_at','chats.updated_at as updated_at')
 		->orderBy('chat_id', 'desc')
 		->get();
