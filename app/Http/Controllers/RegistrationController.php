@@ -10,6 +10,12 @@ class RegistrationController extends Controller
 {
    public function store(){
     	//Validate Form
+  $this->validate(request(),[
+    'name' => 'required'
+    ]);
+
+
+
     $name = request('name');
 
     if(request('college'))
@@ -19,7 +25,7 @@ class RegistrationController extends Controller
     	//Create and Save User
     $user = User::create([
         'name'=>$name,
-        'college_id'=>$college_id
+        'college_id'=>$college_id,
         ]);
 
     	//Sign in user
