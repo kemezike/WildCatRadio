@@ -47,4 +47,10 @@ class ChatController extends Controller
 
 		return $chats;
 	}
+
+		public function destroy(Request $request){
+			Chat::destroy($request->id);
+
+		return $request->id;
+	}
 }
