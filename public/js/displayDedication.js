@@ -16,7 +16,7 @@ function chat(){
                     if(!data[i].name)
                         data[i].name="Anonymous";
 
-                    txt += '<div class="container darker"><p>"' + data[i].message + '"</p><span class="time-left">'+ data[i].name +'</span><br><span class="time-left">'+ data[i].college_name +'</span><br><span class="time-left">' + moment(data[i].created_at).format('MMMM Do YYYY, h:mm a') + '</span><br><hr></div>'; 
+                    txt += '<div class="container darker"><p>"' + data[i].message + '"</p><span class="time-left">'+ data[i].name +'</span><br><span class="time-left"> Song: "'+ data[i].song_name +'"</span><br><span class="time-left">'+ data[i].college_name +'</span><br><span class="time-left">' + moment(data[i].created_at).format('MMMM Do YYYY, h:mm a') + '</span><br><hr></div>'; 
                 }
                 if(txt != ""){
                    $("#chatbox").html(txt);

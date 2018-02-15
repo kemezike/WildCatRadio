@@ -169,6 +169,7 @@
                           <th>College Name</th>
                           <th>Date Added</th>
                           <th>Date Updated</th>
+                          <th>Song Name</th>
                         </tr>
                       </thead>
                     </table>
@@ -458,6 +459,16 @@
                     <label for="message-text" class="col-form-label" >Message:</label>
                     <textarea class="form-control" id="message"></textarea>
                   </div>
+                  @if(!Auth::user())
+                   <div class="form-group">
+                    <label for="sel1">College:</label>
+                    <select class="form-control" id="college" name="college">
+                      @foreach($colleges as $college)
+                      <option value="{{$college->id}}">{{$college->name}}</option>
+                      @endforeach
+                    </select>
+                  </div>
+                  @endif
                 </form>
               </div>
               <div class="modal-footer">

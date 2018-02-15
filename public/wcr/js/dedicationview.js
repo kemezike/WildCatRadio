@@ -42,23 +42,24 @@ tableview =  $("#dataTable").DataTable( {
           },
           "type": "moment-js-date"
         },
+   {data: "song_name", "orderable":false},
         ],
-       "columnDefs": [ {
-        className: "hide_column",
-        width: "10%",
-        targets: [1,2,4]
-       } ],
-       select: 'single',
-     });
-  $('#refreshtab').on( 'click', function () {
-    tableview.ajax.reload();
-  });
+        "columnDefs": [ {
+          className: "hide_column",
+          width: "10%",
+          targets: [1,2,4]
+        } ],
+        select: 'single',
+      });
+$('#refreshtab').on( 'click', function () {
+  tableview.ajax.reload();
+});
 
 
     // View dedication click function
     $('#dataTable tbody').on('click', 'td.details-control', function () {
-       var MES = $(this).closest('tr').find('td:eq(4)').text();
-       $('#ddcatview').val(MES);
-       $('#viewdecModal').modal('toggle');  
-    });
+     var MES = $(this).closest('tr').find('td:eq(4)').text();
+     $('#ddcatview').val(MES);
+     $('#viewdecModal').modal('toggle');  
+   });
   });
