@@ -23,6 +23,16 @@ tableview =  $("#dataTable").DataTable( {
      },
      width:"15px"
    },
+   {
+      "className":      'details-control2',
+      "orderable":      false,
+      "data":           null,
+      "defaultContent": '',
+      "render": function () {
+       return '<i class="fa fa-eye" aria-hidden="true"></i>';
+     },
+     width:"15px"
+   },
    { data: "chat_id"},
    { data: "user_id", "orderable": false},
    { data: "name", "orderable": false},
@@ -63,3 +73,4 @@ $('#refreshtab').on( 'click', function () {
      $('#viewdecModal').modal('toggle');  
    });
   });
+

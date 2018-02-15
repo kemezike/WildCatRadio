@@ -164,6 +164,7 @@
                           <th title="View Message"></th>
                           <th></th>
                           <th></th>
+                          <th></th>
                           <th>User Name</th>
                           <th></th>
                           <th>College Name</th>
@@ -459,7 +460,7 @@
                     <label for="message-text" class="col-form-label" >Message:</label>
                     <textarea class="form-control" id="message"></textarea>
                   </div>
-                  @if(!Auth::user())
+                 {{--  @if(!Auth::user())
                    <div class="form-group">
                     <label for="sel1">College:</label>
                     <select class="form-control" id="college" name="college">
@@ -468,7 +469,7 @@
                       @endforeach
                     </select>
                   </div>
-                  @endif
+                  @endif --}}
                 </form>
               </div>
               <div class="modal-footer">
