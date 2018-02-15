@@ -8,6 +8,7 @@
                 <div class="panel-heading">Login</div>
 
                 <div class="panel-body">
+                {{-- start of form --}}
                     <form class="form-horizontal" method="POST" action="{{ route('login') }}">
                         {{ csrf_field() }}
 
@@ -61,6 +62,7 @@
                             </div>
                         </div>
                     </form>
+                    {{-- End of form --}}
                 </div>
             </div>
         </div>
