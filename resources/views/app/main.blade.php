@@ -92,11 +92,11 @@
               Dedicate Now with name! 
             </button>
             @endif
-            @if(Auth::user())
+            {{-- @if(Auth::user()) --}}
             <button class="btn btn-default ddcatcp" type="button" title="Send Dedications" data-toggle="modal" data-target="#decModal">
               Dedicate Now !
             </button>
-            @endif
+            {{-- @endif --}}
             <!-- DEDICATION FOR CP  -->
           </div>
         </section><!-- #hero -->
