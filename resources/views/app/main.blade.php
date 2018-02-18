@@ -382,9 +382,9 @@
               <input id="vol-control" type="range" min="0" max="100" step="1" oninput="SetVolume(this.value)" onchange="SetVolume(this.value)"/>
 
               <!-- DEDICATION FOR PC  -->
-              {{-- @if(!Auth::user()) --}}
-              <button class="btn btn-default smallbuts" id="dedicationAccess"  type="button" title="Login" data-toggle="modal" data-target="#logModal">
-                <i class="fa fa-plus" aria-hidden="true"></i>&nbsp;<i class="fa fa-user" aria-hidden="true"></i>
+              @if(!Auth::user())
+              <button class="btn btn-default smallbuts" id="dedicationAccess"  type="button" title="Send Dedications" data-toggle="modal" data-target="#logModal">
+                <i class="fa fa-plus" aria-hidden="true"></i>&nbsp;<i class="fa fa-file-text" aria-hidden="true">
               </button>
               @endif
               {{-- @if(Auth::user()) --}}
