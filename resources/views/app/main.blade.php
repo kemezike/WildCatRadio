@@ -40,18 +40,18 @@
     </head>
 
     <body>
-    @if(count($errors))
-<div class="formgroup">
-  <div class="alert alert-danger alert-dismissable">
-    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-    <ul>
-      @foreach($errors->all() as $error)
-      <li>{{$error}}</li>
-      @endforeach
-    </ul> 
-  </div>
-</div>   
-@endif
+      @if(count($errors))
+      <div class="formgroup">
+        <div class="alert alert-danger alert-dismissable">
+          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+          <ul>
+            @foreach($errors->all() as $error)
+            <li>{{$error}}</li>
+            @endforeach
+          </ul> 
+        </div>
+      </div>   
+      @endif
       <!--==========================
       Header
       ============================-->
@@ -72,6 +72,7 @@
               <li><a href="#about">About Us</a></li>
               @if(Auth::user())
               <li><a href="#">Welcome, {{Auth::user()->name}}</a></li>
+              <li><a href="/logout">Logout</a></li>
               @endif
             </ul>
           </nav><!-- #nav-menu-container -->
@@ -88,7 +89,7 @@
             <!-- DEDICATION FOR CP  -->
             @if(!Auth::user())
             <button class="btn btn-default ddcatcp" id="dedicationAccess"  type="button" title="Send Dedications" data-toggle="modal" data-target="#logModal">
-              Dedicate Now ! 
+              Dedicate Now with name! 
             </button>
             @endif
             @if(Auth::user())
@@ -381,11 +382,11 @@
               <input id="vol-control" type="range" min="0" max="100" step="1" oninput="SetVolume(this.value)" onchange="SetVolume(this.value)"/>
 
               <!-- DEDICATION FOR PC  -->
-              {{-- @if(!Auth::user()) --}}
+              @if(!Auth::user())
               <button class="btn btn-default smallbuts" id="dedicationAccess"  type="button" title="Send Dedications" data-toggle="modal" data-target="#logModal">
                 <i class="fa fa-plus" aria-hidden="true"></i>&nbsp;<i class="fa fa-file-text" aria-hidden="true"></i>
               </button>
-              {{-- @endif --}}
+              @endif
               {{-- @if(Auth::user()) --}}
               <button class="btn btn-default smallbuts" type="button" title="Send Dedications" data-toggle="modal" data-target="#decModal">
                 <i class="fa fa-plus" aria-hidden="true"></i>&nbsp;<i class="fa fa-file-text" aria-hidden="true"></i>

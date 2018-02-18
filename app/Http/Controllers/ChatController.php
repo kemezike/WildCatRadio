@@ -16,11 +16,11 @@ class ChatController extends Controller
 // validate user
 		$this->validate(request(),[
 			'message' => 'required',
-			'song_name'=>'required'
+			'song_name'=> 'required'
 			]);
 
 
-		if (Auth::user()) {
+		if(Auth::user()){
 			$user_id=Auth::user()->id;
 		}
 		else{
@@ -34,7 +34,7 @@ class ChatController extends Controller
 			'song_name'=>$request->song_name,
 			]);
 
-		return $user_id;
+		return "success";
 	}
 
 	public function getChat(){
@@ -44,6 +44,8 @@ class ChatController extends Controller
 			'chats.created_at as created_at','chats.updated_at as updated_at')
 		->orderBy('chat_id', 'desc')
 		->get();
+
+		// return Chat::where('user_id',Auth::user()->id)->latest()->get();
 
 		return $chats;
 	}
