@@ -6,6 +6,8 @@ Auth::routes();
 
 Route::get('/','SessionsController@main');
 
+Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
+
 Route::get('/apiChat','ChatController@getChat');
 
 Route::post('/chat','ChatController@store');

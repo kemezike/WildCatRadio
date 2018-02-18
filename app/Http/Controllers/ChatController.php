@@ -14,14 +14,32 @@ class ChatController extends Controller
 
 	public function store(Request $request){
 // validate user
+		$canDedicate = false;
+		$currentTime = new Carbon(); 
+		$bol = 'f';
+
 		$this->validate(request(),[
 			'message' => 'required',
-			'song_name'=>'required'
+			'song_name'=> 'required'
 			]);
 
-
-		if (Auth::user()) {
+		if(Auth::user()){
 			$user_id=Auth::user()->id;
+
+// checks user's latest chat if it's been 6 hours
+			$latestChat = Chat::where('user_id',Auth::user()->id)->addSelect('created_at')->latest()->take(1)->get();
+			if($latestChat->count()){
+				$latestChat = $latestChat[0]->created_at;
+				$latestChat->modify("+6 hours");
+				if($currentTime>$latestChat)
+					$canDedicate = true;
+				else
+					return $bol = '6 hours please!';
+			}
+			else{
+				$canDedicate = true;
+			}
+
 		}
 		else{
 			$user_id=null;
@@ -33,8 +51,10 @@ class ChatController extends Controller
 			'message'=>$request->message,
 			'song_name'=>$request->song_name,
 			]);
+		if($canDedicate)
+			$bol = 't';
 
-		return $user_id;
+		return 'success';
 	}
 
 	public function getChat(){
@@ -45,11 +65,12 @@ class ChatController extends Controller
 		->orderBy('chat_id', 'desc')
 		->get();
 
+
 		return $chats;
 	}
 
-		public function destroy(Request $request){
-			Chat::destroy($request->id);
+	public function destroy(Request $request){
+		Chat::destroy($request->id);
 
 		return $request->id;
 	}

@@ -72,6 +72,7 @@
               <li><a href="#about">About Us</a></li>
               @if(Auth::user())
               <li><a href="#">Welcome, {{Auth::user()->name}}</a></li>
+              <li><a href="/logout">Logout</a></li>
               @endif
             </ul>
           </nav><!-- #nav-menu-container -->
@@ -88,14 +89,14 @@
             <!-- DEDICATION FOR CP  -->
             @if(!Auth::user())
             <button class="btn btn-default ddcatcp" id="dedicationAccess"  type="button" title="Send Dedications" data-toggle="modal" data-target="#logModal">
-              Dedicate Now ! 
+              Dedicate Now with name! 
             </button>
             @endif
-            @if(Auth::user())
+            {{-- @if(Auth::user()) --}}
             <button class="btn btn-default ddcatcp" type="button" title="Send Dedications" data-toggle="modal" data-target="#decModal">
               Dedicate Now !
             </button>
-            @endif
+            {{-- @endif --}}
             <!-- DEDICATION FOR CP  -->
           </div>
         </section><!-- #hero -->
@@ -385,7 +386,7 @@
               <button class="btn btn-default smallbuts" id="dedicationAccess"  type="button" title="Login" data-toggle="modal" data-target="#logModal">
                 <i class="fa fa-plus" aria-hidden="true"></i>&nbsp;<i class="fa fa-user" aria-hidden="true"></i>
               </button>
-              {{-- @endif --}}
+              @endif
               {{-- @if(Auth::user()) --}}
               <button class="btn btn-default smallbuts" type="button" title="Send Dedications" data-toggle="modal" data-target="#decModal">
                 <i class="fa fa-plus" aria-hidden="true"></i>&nbsp;<i class="fa fa-file-text" aria-hidden="true"></i>
