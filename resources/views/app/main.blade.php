@@ -382,8 +382,8 @@
 
               <!-- DEDICATION FOR PC  -->
               {{-- @if(!Auth::user()) --}}
-              <button class="btn btn-default smallbuts" id="dedicationAccess"  type="button" title="Send Dedications" data-toggle="modal" data-target="#logModal">
-                <i class="fa fa-plus" aria-hidden="true"></i>&nbsp;<i class="fa fa-file-text" aria-hidden="true"></i>
+              <button class="btn btn-default smallbuts" id="dedicationAccess"  type="button" title="Login" data-toggle="modal" data-target="#logModal">
+                <i class="fa fa-plus" aria-hidden="true"></i>&nbsp;<i class="fa fa-user" aria-hidden="true"></i>
               </button>
               {{-- @endif --}}
               {{-- @if(Auth::user()) --}}
