@@ -15,82 +15,26 @@ $(document).ready(function(){
             // Click function
             click:function(){
             // CHECKING OF THE CONNECTING IF TRUE IT WILL STREAM
-            if ( $('#excheck').val() == "true" )
-            {
-              if( $('#streamicon').hasClass("fa-play")){
-                $('#streamicon').removeClass("fa-play");
-                $('#streamicon').addClass("fa-stop");
-                music.setAttribute('src',"http://192.168.254.100:8000/stream.m3u");
-                music.controls = false ;
-                music.play();
-              }
-              else if ($('#streamicon').hasClass("fa-stop"))
-              {
-                $('#streamicon').removeClass("fa-stop");
-                $('#streamicon').addClass("fa-play");
-                music.pause();
-                music.setAttribute('src',"#");
-                $('#stream').removeAttr('src');
-              }
-            }
-            // ELSE IF NO CONNECTION IT WILL INFORM THE USER 
-            else
-            {
-              toastr.error('Please Try Again Later', 'Radio is Offline');
-
-
-            }
+            PlayStop();
           }
         });
 
         // MUTE BUTTON
         $("#mute-button").bind({
           click:function(){
-            if(music.volume > 0){
-              $('#muteonicon').removeClass("fa-volume-off");
-              $('#muteonicon').addClass("fa-volume-up");
-              $('#vol-control').val(0);
-              SetVolume(0);
-            }
-            else
-            {
-              $('#muteonicon').removeClass("fa-volume-up");
-              $('#muteonicon').addClass("fa-volume-off");
-              $('#vol-control').val(100);
-              SetVolume(100);
-            }
+           Mute();
           }
         });
 
           // MiniMaximize BUTTON
           $("#mmbutton").bind({
           click:function(){
-            if($('#metafooter').hasClass("footer")){
-              $('#metafooter').removeClass("footer");
-              $('#metafooter').addClass("footer1");
-              $('#minbutton').removeClass("fa-window-minimize");
-              $('#minbutton').addClass("fa-window-maximize");
-              $('#vol-control').hide();
-              $('#mute-button').hide();
-              $('#appn').hide();
-              $('#play-button').css('margin-right', '10px');
-            }
-            else
-            {
-              $('#metafooter').removeClass("footer1");
-              $('#metafooter').addClass("footer");
-              $('#minbutton').removeClass("fa-window-maximize");
-              $('#minbutton').addClass("fa-window-minimize");
-              $('#vol-control').show();
-              $('#mute-button').show();
-              $('#play-button').css('margin-right', '50px');
-              $('#appn').show();
-      
-            }
+            Minimax();
           }
         });
       });
 
+// TO CHECK IF THE RADIO IS ONLINE 
 function checkNetConnection(val){ 
   $.ajax({
    type: 'GET',
@@ -127,6 +71,7 @@ function checkNetConnection(val){
 });
 }
 
+// DISPLAY THE LOADING ANIMATION WHEN THE RADIO IS OFFLINE
 function loadingAnimation() {
   if ($('#excheck').val("false") || $('#excheck').val("") )
   {
@@ -134,6 +79,7 @@ function loadingAnimation() {
   }
  }
 
+// DISPLAY THE RADIO TITLE
 function radioTitle() {
   var url = 'http://192.168.254.100:8000/json.xsl';  
   $.ajax({
@@ -154,6 +100,7 @@ function radioTitle() {
 
 }
 
+// SET THE VOLUME
 function SetVolume(val)
     {
     	$('#volcheckerggwp').val(val);
@@ -178,6 +125,7 @@ function SetVolume(val)
         }
     }
 
+// IT WILL DESTROY THE MUSIC WHEN IT STOPS AND CHANGES SOURCE AFTERWARDS
 function WhenPause()
     {
         var music = document.getElementById('music');
@@ -196,3 +144,75 @@ function WhenPause()
 
     }
 
+// PLAY/STOP
+function PlayStop()
+{
+	 if ( $('#excheck').val() == "true" )
+            {
+              if( $('#streamicon').hasClass("fa-play")){
+                $('#streamicon').removeClass("fa-play");
+                $('#streamicon').addClass("fa-stop");
+                music.setAttribute('src',"http://192.168.254.100:8000/stream.m3u");
+                music.controls = false ;
+                music.play();
+              }
+              else if ($('#streamicon').hasClass("fa-stop"))
+              {
+                $('#streamicon').removeClass("fa-stop");
+                $('#streamicon').addClass("fa-play");
+                music.pause();
+                music.setAttribute('src',"#");
+                $('#stream').removeAttr('src');
+              }
+            }
+            // ELSE IF NO CONNECTION IT WILL INFORM THE USER 
+            else
+            {
+              toastr.error('Please Try Again Later', 'Radio is Offline');
+
+
+            }
+}
+// WHEN YOU PRESS THE MUTE BUTTON IT WILL MUTE THE MUSIC
+function Mute()
+{
+	 if(music.volume > 0){
+              $('#muteonicon').removeClass("fa-volume-off");
+              $('#muteonicon').addClass("fa-volume-up");
+              $('#vol-control').val(0);
+              SetVolume(0);
+            }
+            else
+            {
+              $('#muteonicon').removeClass("fa-volume-up");
+              $('#muteonicon').addClass("fa-volume-off");
+              $('#vol-control').val(100);
+              SetVolume(100);
+            }
+}
+// IT WILL MINIMIZE AND MAXIMIZE THE FOOTER
+function Minimax()
+{
+	if($('#metafooter').hasClass("footer")){
+              $('#metafooter').removeClass("footer");
+              $('#metafooter').addClass("footer1");
+              $('#minbutton').removeClass("fa-window-minimize");
+              $('#minbutton').addClass("fa-window-maximize");
+              $('#vol-control').hide();
+              $('#mute-button').hide();
+              $('#appn').hide();
+              $('#play-button').css('margin-right', '10px');
+            }
+            else
+            {
+              $('#metafooter').removeClass("footer1");
+              $('#metafooter').addClass("footer");
+              $('#minbutton').removeClass("fa-window-maximize");
+              $('#minbutton').addClass("fa-window-minimize");
+              $('#vol-control').show();
+              $('#mute-button').show();
+              $('#play-button').css('margin-right', '50px');
+              $('#appn').show();
+      
+            }
+}

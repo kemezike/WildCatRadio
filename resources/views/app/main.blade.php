@@ -165,13 +165,13 @@
                           <th title="View Message"></th>
                           <th></th>
                           <th></th>
-                          <th></th>
                           <th>User Name</th>
                           <th></th>
                           <th>College Name</th>
                           <th>Date Added</th>
                           <th>Date Updated</th>
                           <th>Song Name</th>
+                          <th></th>
                         </tr>
                       </thead>
                     </table>
@@ -461,7 +461,7 @@
                     <label for="message-text" class="col-form-label" >Message:</label>
                     <textarea class="form-control" id="message"></textarea>
                   </div>
-                 {{--  @if(!Auth::user())
+                  {{--  @if(!Auth::user())
                    <div class="form-group">
                     <label for="sel1">College:</label>
                     <select class="form-control" id="college" name="college">
@@ -537,5 +537,28 @@
          </div>
        </div>
        <!-- VIEW DEDICATION MODAL -->
-       <!-- END OF MODALS-->
-       </html>
+
+
+       <!-- Remove Modals -->
+
+         <div class="modal fade" id="RemoveModal" tabindex="-1" role="dialog" aria-labelledby="viewModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">\
+              <input type="text" id="ddcatid" class="hidden"/>
+              <div class="modal-header">
+                <h4> Remove Dedication </h4>
+              </div>
+              <div class="modal-body">
+                <h5> Are you sure you want to delete this Dedication?</h5>
+              </div>
+              <div class="modal-footer">
+               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+               <button type="button" class="btn btn-primary" id="removeddcat">Delete</button>
+             </div>
+           </div>
+         </div>
+       </div>
+       <!-- END OF REMOVE MODALS -->
+              <!-- END OF MODALS-->
+
+              </html>

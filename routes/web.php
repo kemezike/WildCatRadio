@@ -14,6 +14,8 @@ Route::post('/chat','ChatController@store');
 
 Route::get('/chat', 'ChatController@getChat');
 
+Route::delete('/chat', 'ChatController@destroy');
+
 Route::post('/register', 'RegistrationController@store');
 
 Route::get('/home', 'HomeController@index')->name('home');

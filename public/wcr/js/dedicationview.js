@@ -23,16 +23,6 @@ tableview =  $("#dataTable").DataTable( {
      },
      width:"15px"
    },
-   {
-      "className":      'details-control2',
-      "orderable":      false,
-      "data":           null,
-      "defaultContent": '',
-      "render": function () {
-       return '<i class="fa fa-eye" aria-hidden="true"></i>';
-     },
-     width:"15px"
-   },
    { data: "chat_id"},
    { data: "user_id", "orderable": false},
    { data: "name", "orderable": false},
@@ -53,6 +43,16 @@ tableview =  $("#dataTable").DataTable( {
           "type": "moment-js-date"
         },
    {data: "song_name", "orderable":false},
+  {
+      "className":      'details-control2',
+      "orderable":      false,
+      "data":           null,
+      "defaultContent": '',
+      "render": function () {
+       return '<i class="fa fa-times" aria-hidden="true"></i>';
+     },
+     width:"15px"
+   },
         ],
         "columnDefs": [ {
           className: "hide_column",
@@ -72,5 +72,43 @@ $('#refreshtab').on( 'click', function () {
      $('#ddcatview').val(MES);
      $('#viewdecModal').modal('toggle');  
    });
+
+    // Remove Dedication click function
+    $('#dataTable tbody').on('click', 'td.details-control2', function () {
+     var ID = $(this).closest('tr').find('td:eq(-9)').text();
+     $('#ddcatid').val(ID);
+     $('#RemoveModal').modal('toggle');
+   });
+
+    $("#removeddcat").bind({
+            // Click function
+            click:function(){
+              DeleteDedication($('#ddcatid').val());
+          }
+
+    // END OF REMOVE DEDICATION CLICK FUNCTION
+    
+    });
+
+
+
+
+
   });
 
+function DeleteDedication(val)
+{
+  $.ajax({
+        type: 'delete',
+        url: '/chat',
+        data: {
+          'id': val,
+        },
+        success: function(data) {
+          $('#RemoveModal').modal('toggle');
+          $('#refreshtab').click();
+          toastr.success('Sucess','Dedication Removed!');
+          console.log(data);
+       }
+     });
+}
