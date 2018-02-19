@@ -31,6 +31,7 @@ class ChatController extends Controller
 			if($latestChat->count()){
 				$latestChat = $latestChat[0]->created_at;
 				$latestChat->modify("+6 hours");
+
 				if($currentTime>$latestChat)
 					$canDedicate = true;
 				else
@@ -43,6 +44,19 @@ class ChatController extends Controller
 		}
 		else{
 			$user_id=null;
+
+			if(session()->get('ip')==null)
+				session()->put('ip', $request->ip());
+
+			$latestChat = Chat::where('ip', session()->get('ip'))->addSelect('created_at')->latest()->take(1)->get();
+			if($latestChat->count()){
+				$latestChat = $latestChat[0]->created_at;
+				$latestChat->modify("+6 hours");
+				if($currentTime>$latestChat)
+					$canDedicate = true;
+				else
+					return $bol = '6 hours please!';
+			}
 		}
 
 //create chat and save
@@ -50,14 +64,16 @@ class ChatController extends Controller
 			'user_id'=>$user_id,
 			'message'=>$request->message,
 			'song_name'=>$request->song_name,
+			'ip'=>$request->ip(),
 			]);
+
 		if($canDedicate)
 			$bol = 't';
 
-		return 'success';
+		return $bol;
 	}
 
-	public function getChat(){
+	public function getChat(Request $request){
 		$chats = Chat::leftJoin('users','users.id','=','chats.user_id')
 		->leftJoin('colleges','colleges.id','=','users.college_id')
 		->addSelect('chats.id as chat_id','users.id as user_id','users.name as name','message','colleges.name as college_name','song_name',
