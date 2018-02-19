@@ -4,6 +4,26 @@
   Author: BootstrapMade.com
   License: https://bootstrapmade.com/license/
 */
+/*LOGIN CONTAINER*/
+.panuhot
+{
+  margin-top: 40px;
+}
+#logoncontainer
+{
+  margin-left: 480px;
+  background-color: #191818;
+}
+#logoncontainer h1 
+{
+  font: 400 24pt/1.5 'Pacifico', Helvetica, sans-serif;
+  color: gold;
+  margin-left: 70px;
+}
+.control-label
+{
+  color: white;
+}
 /*small Footer*/
 .footer1 {
    position: fixed;
