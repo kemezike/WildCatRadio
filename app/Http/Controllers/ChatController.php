@@ -25,7 +25,8 @@ class ChatController extends Controller
 
 		if(Auth::user()){
 			$user_id=Auth::user()->id;
-
+				if(session()->get('ip')==null)
+				session()->put('ip', $request->ip());
 // checks user's latest chat if it's been 6 hours
 			$latestChat = Chat::where('user_id',Auth::user()->id)->addSelect('created_at')->latest()->take(1)->get();
 			if($latestChat->count()){
@@ -48,6 +49,7 @@ class ChatController extends Controller
 			if(session()->get('ip')==null)
 				session()->put('ip', $request->ip());
 
+		}
 			$latestChat = Chat::where('ip', session()->get('ip'))->addSelect('created_at')->latest()->take(1)->get();
 			if($latestChat->count()){
 				$latestChat = $latestChat[0]->created_at;
@@ -57,7 +59,6 @@ class ChatController extends Controller
 				else
 					return $bol = '6 hours please!';
 			}
-		}
 
 //create chat and save
 		Chat::create([
